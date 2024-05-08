@@ -1,0 +1,91 @@
+@import "../../app//globals.scss";
+
+.outerContainer {
+  height: 100vh;
+  width: 100%;
+}
+.redContainer {
+  height: 63%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #fe4236;
+  .logoContainer {
+    width: fit-content;
+    margin-bottom: 30px;
+  }
+}
+.contentContainer {
+  height: calc(100vh - 68%);
+  width: 100%;
+  background-color: $white;
+  .formContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $blue;
+    form {
+      width: 315px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      gap: 15px;
+      .inputContainer {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        .eyeContainer {
+          display: flex;
+          align-items: center;
+          position: absolute;
+          right: 20px;
+        }
+      }
+      label {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: 23px;
+        font-size: 13px;
+        text-transform: uppercase;
+        img {
+          margin-right: 11px;
+        }
+      }
+      input {
+        height: 49px;
+        width: 100%;
+        color: $blue;
+        padding-left: 61px;
+        border-radius: 25px;
+        border: 1px solid $blue;
+        &:focus {
+          border-color: $blue;
+          outline: none;
+        }
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+    p {
+      margin: 7px 0 0 53px;
+      font-size: 12px;
+    }
+  }
+  .buttonContainer {
+    margin: 10px 0 0 calc(80% - 44px);
+    button {
+      width: 93px;
+      height: 48px;
+      color: $blue;
+      text-transform: uppercase;
+      background-color: transparent;
+      border-radius: 25px;
+      border: 1px solid $blue;
+    }
+  }
+}
