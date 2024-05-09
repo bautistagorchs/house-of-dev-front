@@ -70,7 +70,9 @@ const Login = () => {
           <p>¿Olvidaste tu contraseña?</p>
         </Link>
         <div className={s.buttonContainer}>
-          <button>Log in</button>
+          <Link href={"/home"}>
+            <button>Log in</button>
+          </Link>
         </div>
       </div>
     </div>

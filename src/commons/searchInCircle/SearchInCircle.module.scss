@@ -1,0 +1,12 @@
+@import "../../app/globals.scss";
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+.icon {
+  position: absolute;
+}

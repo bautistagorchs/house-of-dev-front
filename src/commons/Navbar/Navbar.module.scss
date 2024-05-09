@@ -1,0 +1,18 @@
+@import "../../app/globals.scss";
+
+.navbarContainer {
+  height: 120px;
+  background-color: $red;
+}
+.contentContainer {
+  .logo {
+    position: absolute;
+    top: 59px;
+    left: 25px;
+  }
+  .menuContainer {
+    position: absolute;
+    top: 75px;
+    right: 20px;
+  }
+}

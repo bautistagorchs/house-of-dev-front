@@ -1,0 +1,114 @@
+@import "../../app/globals.scss";
+
+.outerContainer {
+  width: 100%;
+  height: calc(100vh - 120px /* la altura de la navbar*/);
+  display: flex;
+  justify-content: center;
+  background-color: $white;
+}
+.contentContainer {
+  width: 82%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $blue;
+}
+.lineContainer {
+  position: absolute;
+  right: 0;
+  top: 32%;
+}
+.box {
+  height: 150px;
+  width: 100%;
+  margin-top: 195px;
+  border: 1px solid $blue;
+  hr {
+    margin: 0;
+    border: 1px solid $transparent-blue;
+  }
+  .header {
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .rent {
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+  .buy {
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+  .titleContainer {
+    width: 42%;
+    h3 {
+      font-size: 17px;
+      margin: 7px 0 5px 9px;
+      text-transform: uppercase;
+    }
+  }
+  .hrContainer {
+    width: 50%;
+    margin-bottom: 10px;
+  }
+  input {
+    margin: 0 12px 0 20px;
+    &:checked + label {
+      font-weight: 500;
+    }
+  }
+}
+.searchContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 7px;
+  input {
+    width: 100%;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    padding-left: 45px;
+    color: $blue;
+    background-color: transparent;
+    border-radius: 25px;
+    border: 1px solid $blue;
+    &:focus {
+      border-width: 2px;
+      outline: none;
+    }
+    &::-webkit-search-cancel-button {
+      position: absolute;
+      right: 20px;
+      padding: 1.5px;
+    }
+  }
+  label {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-left: 10px;
+  }
+}
+.buttonContainer {
+  margin-top: 25px;
+  margin-right: -129px;
+  button {
+    width: 160px;
+    height: 45px;
+    color: $blue;
+    text-transform: uppercase;
+    background-color: transparent;
+    border-radius: 25px;
+    border: 1px solid $blue;
+  }
+}
