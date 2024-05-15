@@ -1,16 +1,16 @@
 import React from "react";
-import s from "./EmailinCircle.module.scss";
+import s from "./ArrowInCircle.module.scss";
 import Image from "next/image";
-import emailIcon from "../../assets/emailIcon.png";
 import orangeCircle from "../../assets/orangeCircle.png";
+import arrowRight from "../../assets/arrowRight.png";
 
-const EmailInCircle = () => {
+const ArrowInCircle = () => {
   return (
     <div className={s.imagesContainer}>
       <Image src={orangeCircle} alt="orange circle" />
-      <Image src={emailIcon} alt="arrow icon" className={s.icon} />
+      <Image src={arrowRight} alt="email icon" className={s.icon} />
     </div>
   );
 };
 
-export default EmailInCircle;
+export default ArrowInCircle;
