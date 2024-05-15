@@ -1,0 +1,29 @@
+@import "../../app/globals.scss";
+
+.content {
+  width: 315px;
+  height: 48px;
+  position: relative;
+  border: 1px solid $blue;
+  .h3Container {
+    height: 100%;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    h3 {
+      margin: 0 0 0 10px;
+      color: $blue;
+      font-size: 17px;
+      font-weight: 700;
+      text-align: left;
+      text-transform: uppercase;
+    }
+  }
+  hr {
+    width: 170px;
+    position: absolute;
+    top: 60%;
+    right: 0;
+    border: 0.1px solid $blue;
+  }
+}
