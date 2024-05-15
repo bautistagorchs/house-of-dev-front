@@ -8,7 +8,7 @@ const ArrowInCircle = () => {
   return (
     <div className={s.imagesContainer}>
       <Image src={orangeCircle} alt="orange circle" />
-      <Image src={arrowRight} alt="email icon" className={s.icon} />
+      <Image src={arrowRight} alt="arrow icon" className={s.icon} />
     </div>
   );
 };

@@ -1,0 +1,81 @@
+@import "../../app/globals.scss";
+
+.outerContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.headerContainer {
+  margin-top: 15px;
+}
+.gridContainer {
+  main {
+    margin-top: 10px;
+    border: 1px solid $blue;
+    .imageContainer {
+      width: 315px;
+      height: 189px;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 35%;
+        width: 65%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(42, 10, 226, 0),
+          rgb(42, 10, 226)
+        );
+        z-index: 1;
+      }
+      .imgHouse {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 0;
+      }
+    }
+    .textContainer {
+      width: 214px;
+      height: 61px;
+      position: absolute;
+      top: 40px;
+      right: 10px;
+      z-index: 10;
+      h5 {
+        margin: 0;
+        color: $white;
+        text-align: right;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+      }
+    }
+    .buttonContainer {
+      position: absolute;
+      width: 148px;
+      height: 45px;
+      top: 130px;
+      right: -1px;
+      z-index: 10;
+      button {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        outline: none;
+        border: none;
+        border-radius: 22px 0px 0px 22px;
+        background-color: $white;
+        p {
+          margin-left: 10px;
+          text-transform: uppercase;
+          color: $blue;
+        }
+      }
+    }
+  }
+}
