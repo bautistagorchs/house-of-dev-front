@@ -3,13 +3,14 @@ import s from "./GridView.module.scss";
 import Header from "@/commons/Header/Header";
 import Image from "next/image";
 import ArrowInCircle from "@/commons/arrowInCircle/ArrowInCircle";
+import PropertieCard from "@/commons/propertieCard/PropertieCard";
 
 const GridView = () => {
   return (
     <div className={s.outerContainer}>
-      <div className={s.headerContainer}>
+      <header className={s.headerContainer}>
         <Header text="Propiedades en alquiler" hrWidth="170px" />
-      </div>
+      </header>
       <div className={s.gridContainer}>
         <main>
           <div className={s.imageContainer}>
@@ -23,9 +24,9 @@ const GridView = () => {
               className={s.imgHouse}
             />
             <div className={s.textContainer}>
-              <h5>
+              <h2>
                 Aca va un poco de <br /> texto que quiera <br /> la inmobiliaria
-              </h5>
+              </h2>
             </div>
             <div className={s.buttonContainer}>
               <button>
@@ -34,6 +35,14 @@ const GridView = () => {
             </div>
           </div>
         </main>
+        <hr id={s.mainSeparator} />
+        <div className={s.cardsContainer}>
+          <PropertieCard />
+          <PropertieCard />
+          <PropertieCard />
+          <PropertieCard />
+          <PropertieCard />
+        </div>
       </div>
     </div>
   );

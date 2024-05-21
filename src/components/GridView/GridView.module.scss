@@ -7,14 +7,16 @@
   align-items: center;
 }
 .headerContainer {
+  width: 88%;
   margin-top: 15px;
 }
 .gridContainer {
+  width: 88%;
   main {
     margin-top: 10px;
     border: 1px solid $blue;
     .imageContainer {
-      width: 315px;
+      width: 100%;
       height: 189px;
       position: relative;
       &::after {
@@ -45,7 +47,7 @@
       top: 40px;
       right: 10px;
       z-index: 10;
-      h5 {
+      h2 {
         margin: 0;
         color: $white;
         text-align: right;
@@ -62,8 +64,6 @@
       right: -1px;
       z-index: 10;
       button {
-        width: 100%;
-        height: 100%;
         display: flex;
         align-items: center;
         outline: none;
@@ -78,4 +78,17 @@
       }
     }
   }
+}
+#mainSeparator {
+  border: none;
+  border-bottom: 0.5px solid $blue;
+}
+.cardsContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5px;
+  gap: 10px;
 }

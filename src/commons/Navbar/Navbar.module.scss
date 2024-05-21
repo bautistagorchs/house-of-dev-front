@@ -1,18 +1,74 @@
 @import "../../app/globals.scss";
 
 .navbarContainer {
-  height: 120px;
+  height: 90px;
+  position: sticky;
+  top: 0;
   background-color: $red;
+  z-index: 100;
 }
-.contentContainer {
-  .logo {
-    position: absolute;
-    top: 59px;
-    left: 25px;
+.logo {
+  position: absolute;
+  top: 40px;
+  left: 22px;
+}
+.menuContainer {
+  position: absolute;
+  top: 57px;
+  right: 22px;
+}
+ul.noShow {
+  display: none;
+}
+ul.dropdownMenu {
+  width: 88%;
+  position: absolute;
+  top: calc(90px - 50px);
+  left: calc((100% - 88%) / 2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  outline: 0.1px solid $white;
+  animation: slideIn 0.6s ease 0s 1 normal forwards;
+}
+
+ul.dropdownMenu li {
+  background-color: $red;
+  outline: none;
+  border-bottom: 0.1px solid $transparent-white;
+}
+
+ul.dropdownMenu li a {
+  margin-left: 4px;
+  padding: 10px;
+  text-decoration: none;
+  color: $white;
+  display: block;
+}
+
+ul.dropdownMenu li:hover {
+  background-color: $dark-red;
+}
+ul.dropdownMenu li:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    margin-right: 10px;
   }
-  .menuContainer {
-    position: absolute;
-    top: 75px;
-    right: 20px;
+}
+ul.dropdownMenu li:last-child {
+  border-radius: 0px 0px 15px 15px;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

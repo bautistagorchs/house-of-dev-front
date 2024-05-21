@@ -5,6 +5,7 @@ import s from "./Home.module.scss";
 import blueLine from "../../assets/blueLine.png";
 import Image from "next/image";
 import SearchInCircle from "@/commons/searchInCircle/SearchInCircle";
+import Link from "next/link";
 
 const Home = () => {
   const [showSearchLabel, setShowSearchLabel] = useState(true);
@@ -63,7 +64,9 @@ const Home = () => {
           </label>
         </div>
         <div className={s.buttonContainer}>
-          <button>Ver propiedades</button>
+          <Link href={"/gridView"}>
+            <button>Ver propiedades</button>
+          </Link>
         </div>
       </div>
     </div>
