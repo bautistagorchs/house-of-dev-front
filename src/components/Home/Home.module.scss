@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: $blue;
+  color: $secondary-color;
 }
 .lineContainer {
   position: absolute;
@@ -23,10 +23,10 @@
   height: 150px;
   width: 100%;
   margin-top: 195px;
-  border: 1px solid $blue;
+  border: 1px solid $secondary-color;
   hr {
     margin: 0;
-    border: 1px solid $transparent-blue;
+    border: 1px solid $secondary-color-transparent;
   }
   .header {
     height: 50px;
@@ -75,10 +75,10 @@
     display: flex;
     align-items: center;
     padding-left: 45px;
-    color: $blue;
+    color: $secondary-color;
     background-color: transparent;
     border-radius: 25px;
-    border: 1px solid $blue;
+    border: 1px solid $secondary-color;
     &:focus {
       border-width: 2px;
       outline: none;
@@ -105,10 +105,10 @@
   button {
     width: 160px;
     height: 45px;
-    color: $blue;
+    color: $secondary-color;
     text-transform: uppercase;
     background-color: transparent;
     border-radius: 25px;
-    border: 1px solid $blue;
+    border: 1px solid $secondary-color;
   }
 }

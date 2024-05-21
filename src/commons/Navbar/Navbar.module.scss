@@ -4,7 +4,7 @@
   height: 90px;
   position: sticky;
   top: 0;
-  background-color: $red;
+  background-color: $main-color;
   z-index: 100;
 }
 .logo {
@@ -33,7 +33,7 @@ ul.dropdownMenu {
 }
 
 ul.dropdownMenu li {
-  background-color: $red;
+  background-color: $main-color;
   outline: none;
   border-bottom: 0.1px solid $transparent-white;
 }
@@ -47,7 +47,7 @@ ul.dropdownMenu li a {
 }
 
 ul.dropdownMenu li:hover {
-  background-color: $dark-red;
+  background-color: $main-color-dark;
 }
 ul.dropdownMenu li:first-child {
   display: flex;
