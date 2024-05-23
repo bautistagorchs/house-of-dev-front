@@ -45,7 +45,7 @@ const Navbar = () => {
             <Link href="/servicios">Nuestros servicios</Link>
           </li>
           <li>
-            <Link href="/perfil">Mi perfil</Link>
+            <Link href="/profile">Mi perfil</Link>
           </li>
           <li>
             <Link href="/nosotros">Nosotros</Link>
