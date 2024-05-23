@@ -22,3 +22,8 @@ body {
     text-wrap: balance;
   }
 }
+button {
+  color: #123ac8;
+  text-transform: uppercase;
+  background-color: transparent;
+}

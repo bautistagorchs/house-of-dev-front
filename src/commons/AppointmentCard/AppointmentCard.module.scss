@@ -1,0 +1,94 @@
+@import "../../app/globals.scss";
+
+div.appCard {
+  width: 315px;
+  height: 205px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+div.appCard .left {
+  width: 33%;
+}
+
+.left .imgContainer {
+  height: 108px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  border: 1px solid $secondary-color;
+  border-right: none;
+}
+.left img {
+  max-width: 93%;
+  max-height: 93%;
+  display: block;
+  margin: auto;
+}
+.left button {
+  width: 93%;
+  height: 45px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  border-radius: 0 22px 22px 0;
+  border: 1px solid $secondary-color;
+}
+div.appCard .right {
+  width: 66%;
+  color: $secondary-color;
+  border: 1px solid $secondary-color;
+}
+.right .list {
+  height: 100%;
+}
+.right .list div:first-child {
+  height: 31px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  #date {
+    width: 67%;
+    border-right: 1px solid $secondary-color;
+  }
+  #time {
+    width: calc(100% - 67%);
+    display: flex;
+    justify-content: center;
+  }
+}
+.right .list > div {
+  height: calc((100% - 35px) / 4);
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+  font-size: 14px;
+  font-weight: 400;
+  border-bottom: 1px solid $secondary-color;
+  &:nth-child(2) {
+    img {
+      margin-right: 4px;
+    }
+  }
+  &:nth-child(n + 3) {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: auto;
+    h5,
+    p {
+      margin: 0;
+      padding: 0;
+    }
+    h5 {
+      font-weight: 400;
+      font-size: 12px;
+    }
+    p {
+      font-size: 15px;
+      font-weight: 700;
+    }
+  }
+}
