@@ -72,8 +72,10 @@
   a {
     text-decoration: none;
     p {
-      margin: 7px 0 0 53px;
+      color: $secondary-color-dark;
+      margin: 9px 0 0 50px;
       font-size: 12px;
+      font-weight: 500;
     }
   }
   .buttonContainer {

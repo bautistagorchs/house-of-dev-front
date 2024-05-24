@@ -33,22 +33,22 @@ const Navbar = () => {
             <Image src={close} alt="close" onClick={handleCloseDropdown} />
           </li>
           <li>
-            <Link href="/login">En venta</Link>
+            <Link href="/login">Login</Link>
           </li>
           <li>
-            <Link href="/alquiler">Alquiler</Link>
+            <Link href="/gridView">GridView</Link>
           </li>
           <li>
-            <Link href="/visita">Agenda tu visita</Link>
+            <Link href="/appointments">Appointments</Link>
           </li>
           <li>
-            <Link href="/servicios">Nuestros servicios</Link>
+            <Link href="/home">Home</Link>
           </li>
           <li>
             <Link href="/profile">Mi perfil</Link>
           </li>
           <li>
-            <Link href="/nosotros">Nosotros</Link>
+            <Link href="/">Barra</Link>
           </li>
           <li>
             <Link href="/contacto">Contacto</Link>
