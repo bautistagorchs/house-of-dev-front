@@ -13,3 +13,8 @@ export type AppCardProps = {
     email: string;
   };
 };
+
+export type userLoginType = {
+  email: string;
+  password: string;
+};

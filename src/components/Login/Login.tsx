@@ -9,21 +9,53 @@ import EmailInCircle from "@/commons/EmailInCircle/EmailInCircle";
 import LockInCircle from "@/commons/lockInCircle/LockInCircle";
 import OpenedEye from "@/assets/OpenedEye";
 import ClosedEye from "@/assets/ClosedEye";
+import { authMeService, loginService } from "@/services/user.services";
 
 const Login = () => {
   const [showEmailLabel, setShowEmailLabel] = useState(true);
   const [showPasswordLabel, setShowPasswordlLabel] = useState(true);
   const [showHidePassword, setShowHidePassord] = useState(false);
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.target.value,
+    });
+    if (e.target.name === "email") {
+      return e.target.value !== ""
+        ? setShowEmailLabel(false)
+        : setShowEmailLabel(true);
+    } else {
+      return e.target.value !== ""
+        ? setShowPasswordlLabel(false)
+        : setShowPasswordlLabel(true);
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    loginService(credentials);
+  };
   return (
     <div className={s.outerContainer}>
       <div className={s.redContainer}>
         <div className={s.logoContainer}>
           <Image src={logo} alt="logo" />
         </div>
+        <button onClick={() => authMeService()}>/me</button>
       </div>
       <div className={s.contentContainer}>
         <div className={s.formContainer}>
-          <form className={s.form}>
+          <form
+            action="submit"
+            method="post"
+            onSubmit={handleSubmit}
+            className={s.form}
+          >
             <div className={s.inputContainer}>
               <label htmlFor="email">
                 <EmailInCircle />
@@ -34,11 +66,8 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
-                onChange={(e) => {
-                  return e.target.value !== ""
-                    ? setShowEmailLabel(false)
-                    : setShowEmailLabel(true);
-                }}
+                autoFocus
+                onChange={handleChange}
               />
             </div>
             <div className={s.inputContainer}>
@@ -51,11 +80,7 @@ const Login = () => {
               <input
                 type={showHidePassword ? "text" : "password"}
                 name="password"
-                onChange={(e) => {
-                  return e.target.value !== ""
-                    ? setShowPasswordlLabel(false)
-                    : setShowPasswordlLabel(true);
-                }}
+                onChange={handleChange}
               />
               <div
                 className={s.eyeContainer}
@@ -64,15 +89,14 @@ const Login = () => {
                 {showHidePassword ? <ClosedEye /> : <OpenedEye />}
               </div>
             </div>
+            <input type="submit" value={"Submit"} style={{ display: "none" }} />
           </form>
         </div>
         <Link href={"/recover-password"}>
           <p>¿Olvidaste tu contraseña?</p>
         </Link>
         <div className={s.buttonContainer}>
-          <Link href={"/home"}>
-            <button>Log in</button>
-          </Link>
+          <button onClick={handleSubmit}>Log in</button>
         </div>
       </div>
     </div>
