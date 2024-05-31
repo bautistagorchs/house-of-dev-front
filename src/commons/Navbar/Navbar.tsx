@@ -8,10 +8,21 @@ import Link from "next/link";
 import close from "@/assets/close.png";
 import { Spin } from "hamburger-react";
 import { logoutService } from "@/services/user.services";
+import { AppDispatch, RootState } from "@/state/store.state";
+import { useDispatch, useSelector } from "react-redux";
+import { clearUser } from "@/state/features/userSlice";
 
 const Navbar = () => {
+  const dispatch: AppDispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.user);
+
   const [showSearchAction, setShowSearchAction] = useState(false);
   const handleCloseDropdown = () => setShowSearchAction(false);
+  const handleLogout = async () => {
+    const response = await logoutService();
+    if (response.status === 204) return dispatch(clearUser());
+    return;
+  };
   return (
     <nav className={s.navbarContainer}>
       <div className={s.contentContainer}>
@@ -61,7 +72,7 @@ const Navbar = () => {
             <Link href="/contacto">Contacto</Link>
           </li>
           <li>
-            <p onClick={() => logoutService()}>Logout</p>
+            <p onClick={handleLogout}>{user.email ? `Logout` : `Login`}</p>
           </li>
         </ul>
       </div>

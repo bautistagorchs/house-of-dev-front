@@ -10,8 +10,12 @@ import LockInCircle from "@/commons/lockInCircle/LockInCircle";
 import OpenedEye from "@/assets/OpenedEye";
 import ClosedEye from "@/assets/ClosedEye";
 import { loginService } from "@/services/user.services";
+import { AppDispatch } from "@/state/store.state";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/state/features/userSlice";
 
 const Login = () => {
+  const dispatch: AppDispatch = useDispatch();
   const [showEmailLabel, setShowEmailLabel] = useState(true);
   const [showPasswordLabel, setShowPasswordlLabel] = useState(true);
   const [showHidePassword, setShowHidePassord] = useState(false);
@@ -39,8 +43,7 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const user = await loginService(credentials);
-    console.log("usuariel login devolvio", user.data.user);
-    return;
+    return dispatch(setUser(user.data.user));
   };
   return (
     <div className={s.outerContainer}>
