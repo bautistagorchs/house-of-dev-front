@@ -9,7 +9,7 @@ import EmailInCircle from "@/commons/EmailInCircle/EmailInCircle";
 import LockInCircle from "@/commons/lockInCircle/LockInCircle";
 import OpenedEye from "@/assets/OpenedEye";
 import ClosedEye from "@/assets/ClosedEye";
-import { authMeService, loginService } from "@/services/user.services";
+import { loginService } from "@/services/user.services";
 
 const Login = () => {
   const [showEmailLabel, setShowEmailLabel] = useState(true);
@@ -36,9 +36,11 @@ const Login = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    loginService(credentials);
+    const user = await loginService(credentials);
+    console.log("usuariel login devolvio", user.data.user);
+    return;
   };
   return (
     <div className={s.outerContainer}>
@@ -46,7 +48,6 @@ const Login = () => {
         <div className={s.logoContainer}>
           <Image src={logo} alt="logo" />
         </div>
-        <button onClick={() => authMeService()}>/me</button>
       </div>
       <div className={s.contentContainer}>
         <div className={s.formContainer}>

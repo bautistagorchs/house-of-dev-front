@@ -5,8 +5,9 @@ import s from "./Navbar.module.scss";
 import Hod from "../../assets/Hod.png";
 import Image from "next/image";
 import Link from "next/link";
-import Menu from "../../assets/menu.png";
 import close from "@/assets/close.png";
+import { Spin } from "hamburger-react";
+import { logoutService } from "@/services/user.services";
 
 const Navbar = () => {
   const [showSearchAction, setShowSearchAction] = useState(false);
@@ -21,7 +22,13 @@ const Navbar = () => {
           className={s.menuContainer}
           onClick={() => setShowSearchAction(true)}
         >
-          <Image src={Menu} alt="Menu" />
+          <Spin
+            color="#f7f3ee"
+            size={30}
+            rounded
+            toggled={showSearchAction}
+            toggle={setShowSearchAction}
+          />
         </div>
         <ul
           id="search-actions"
@@ -52,6 +59,9 @@ const Navbar = () => {
           </li>
           <li>
             <Link href="/contacto">Contacto</Link>
+          </li>
+          <li>
+            <p onClick={() => logoutService()}>Logout</p>
           </li>
         </ul>
       </div>

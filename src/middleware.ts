@@ -4,7 +4,6 @@ import { jwtVerify } from "jose";
 const secretKey = process.env.NEXT_PUBLIC_JWT_SECRET;
 
 export const middleware = async (request: NextRequest) => {
-  console.log("holaaaa");
   const jwt = request.cookies.get("myToken");
 
   if (!jwt) return NextResponse.redirect(new URL("/login", request.url));
