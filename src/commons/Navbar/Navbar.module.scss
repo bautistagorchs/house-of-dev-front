@@ -1,7 +1,7 @@
 @import "../../app/globals.scss";
 
 .navbarContainer {
-  height: 90px;
+  height: $navbar-height;
   position: sticky;
   top: 0;
   background-color: $main-color;
@@ -9,22 +9,22 @@
 }
 .logo {
   position: absolute;
-  top: 40px;
-  left: 22px;
+  top: 40%;
+  left: $navbar-margins;
 }
 .menuContainer {
   position: absolute;
   top: 36px;
-  right: 22px;
+  right: $navbar-margins;
 }
 ul.noShow {
   display: none;
 }
 ul.dropdownMenu {
-  width: 88%;
+  width: 90%;
   position: absolute;
   top: calc(90px - 50px);
-  left: calc((100% - 88%) / 2);
+  left: calc((100% - 90%) / 2);
   list-style: none;
   padding: 0;
   margin: 0;
@@ -41,8 +41,8 @@ ul.dropdownMenu li {
 }
 
 ul.dropdownMenu li a {
-  margin-left: 4px;
   padding: 10px;
+  margin-left: 4px;
   text-decoration: none;
   color: $white;
   display: block;
@@ -79,5 +79,49 @@ ul.dropdownMenu li:last-child {
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@media (min-width: 950px) {
+  .navbarContainer {
+    height: 80px;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0px 2px 18px -1px #010c085e;
+  }
+  .menuContainer {
+    display: none;
+  }
+  ul.dropdownMenu {
+    display: flex;
+    justify-content: flex-end;
+    left: unset;
+    right: $navbar-margins;
+    border: none;
+    outline: none;
+  }
+  ul #first {
+    display: none;
+  }
+  ul.dropdownMenu li {
+    outline: none;
+    border: none;
+    &:hover {
+      all: unset;
+    }
+  }
+  ul.dropdownMenu li a {
+    padding: 10px 0 3px 0;
+    margin-left: 26px;
+    border-bottom: 1px solid transparent;
+    transition: all 1s ease;
+    &:hover {
+      border-bottom: 1px solid white;
+    }
+  }
+
+  ul.dropdownMenu li:last-child {
+    border: none;
+    border-radius: 0;
   }
 }

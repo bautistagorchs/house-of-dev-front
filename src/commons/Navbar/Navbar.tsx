@@ -11,16 +11,21 @@ import { logoutService } from "@/services/user.services";
 import { AppDispatch, RootState } from "@/state/store.state";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUser } from "@/state/features/userSlice";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const dispatch: AppDispatch = useDispatch();
+  const navigate = useRouter();
   const user = useSelector((state: RootState) => state.user);
 
   const [showSearchAction, setShowSearchAction] = useState(false);
   const handleCloseDropdown = () => setShowSearchAction(false);
   const handleLogout = async () => {
     const response = await logoutService();
-    if (response.status === 204) return dispatch(clearUser());
+    if (response.status === 204) {
+      dispatch(clearUser());
+      navigate.push("/login");
+    }
     return;
   };
   return (
@@ -46,8 +51,8 @@ const Navbar = () => {
           className={`${s.dropdownMenu} ${!showSearchAction && s.noShow}`}
           onClick={handleCloseDropdown}
         >
-          <li>
-            <Link href={"*"}>. . .</Link>{" "}
+          <li id={s.first}>
+            <p>. . .</p>
             <Image src={close} alt="close" onClick={handleCloseDropdown} />
           </li>
           <li>

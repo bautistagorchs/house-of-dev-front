@@ -15,6 +15,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #0fa968;
 }
 
 @layer utilities {
@@ -26,4 +27,7 @@ button {
   color: #123ac8;
   text-transform: uppercase;
   background-color: transparent;
+}
+button:hover {
+  cursor: pointer;
 }

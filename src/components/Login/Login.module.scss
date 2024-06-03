@@ -1,23 +1,38 @@
 @import "../../app//globals.scss";
 
 .outerContainer {
-  height: 100vh;
+  height: calc(100vh - $navbar-height);
+  max-height: calc(100vh - $navbar-height);
   width: 100%;
 }
-.redContainer {
-  height: 63%;
+.outerContainer .floatingContent,
+.outerContainer .background {
+  height: 100%;
+  width: inherit;
+}
+.outerContainer .background {
+  .right,
+  .left {
+    display: none;
+  }
+}
+.mainColorContainer {
+  height: 55%;
   display: flex;
-  justify-content: center;
   align-items: flex-end;
   background-color: $main-color;
   .logoContainer {
     width: fit-content;
+    margin-left: 10%;
     margin-bottom: 30px;
   }
 }
-.contentContainer {
-  height: calc(100vh - 68%);
+.outerDiv {
+  height: 45%;
+}
+.outerDiv .contentContainer {
   width: 100%;
+  height: 100%;
   background-color: $white;
   .formContainer {
     width: 100%;
@@ -26,11 +41,11 @@
     align-items: center;
     color: $secondary-color;
     form {
-      width: 315px;
+      width: 80%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 2rem;
+      margin-top: 4rem;
       gap: 15px;
       .inputContainer {
         width: 100%;
@@ -71,15 +86,20 @@
   }
   a {
     text-decoration: none;
+    border-bottom: 1px solid transparent;
+    &:hover {
+      border-bottom: 1px solid $secondary-color;
+    }
     p {
       color: $secondary-color-dark;
-      margin: 9px 0 0 50px;
+      margin: 9px 0 0 15%;
       font-size: 12px;
       font-weight: 500;
     }
   }
   .buttonContainer {
-    margin: 10px 0 0 calc(80% - 44px);
+    position: absolute;
+    right: 10%;
     button {
       width: 93px;
       height: 48px;
@@ -88,6 +108,96 @@
       background-color: transparent;
       border-radius: 25px;
       border: 1px solid $secondary-color;
+      transition: all 0.5s ease-in-out;
+      &:hover {
+        color: $white;
+        background-color: $secondary-color;
+        transform: scale(1.1);
+      }
     }
+  }
+}
+
+@media (min-width: 600px) {
+  .outerContainer .floatingContent {
+    height: 610px;
+    width: $floatingContent-width;
+    position: absolute;
+    top: 20%;
+    left: calc(40% - $floatingContent-width / 2);
+    box-shadow: -2px 2px 20px -4px rgba(1, 12, 8, 0.368627451);
+    transition: all 0.4s ease;
+    &:hover {
+      transform: scale(1.02) translateY(-5px);
+    }
+  }
+  div .mainColorContainer {
+    height: 50%;
+  }
+  .outerDiv {
+    height: 50%;
+  }
+  .outerContainer .background {
+    display: flex;
+    .left {
+      width: 40%;
+      height: 100%;
+      display: block;
+      background-color: $main-color;
+    }
+    .right {
+      width: 60%;
+      height: 100%;
+      display: block;
+      overflow: hidden;
+    }
+    .right img {
+      height: 100%;
+      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      margin: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-height: 800px) {
+  .outerContainer .floatingContent {
+    top: 15%;
+  }
+}
+@media (max-height: 700px) {
+  .outerContainer .floatingContent {
+    width: 800px;
+    height: 350px;
+    top: 25%;
+    left: calc(30% - $floatingContent-width / 2);
+    display: flex;
+  }
+  .outerDiv {
+    height: 100%;
+    width: 50%;
+  }
+  div .mainColorContainer {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .logoContainer {
+      margin: 0;
+    }
+  }
+  .contentContainer {
+    height: 100%;
+    width: 100%;
+  }
+  .outerDiv .contentContainer .formContainer form {
+    margin-top: 6rem;
+  }
+  .outerDiv .contentContainer .buttonContainer {
+    right: 5%;
   }
 }
