@@ -10,6 +10,7 @@ import EmailInCircle from "@/commons/EmailInCircle/EmailInCircle";
 import LockInCircle from "@/commons/lockInCircle/LockInCircle";
 import OpenedEye from "@/assets/OpenedEye";
 import ClosedEye from "@/assets/ClosedEye";
+import signIn from "@/assets/signIn.svg";
 import { loginService } from "@/services/user.services";
 import { AppDispatch } from "@/state/store.state";
 import { useDispatch } from "react-redux";
@@ -53,7 +54,11 @@ const Login = () => {
   return (
     <div className={s.outerContainer}>
       <div className={s.background}>
-        <div className={s.left}></div>
+        <div className={s.left}>
+          <div className={s.svgContainer}>
+            <Image src={signIn} alt="Undraw Svg" id={s.signIn} />
+          </div>
+        </div>
         <div className={s.right}>
           <Image src={bigBackground} alt="big background" />
         </div>

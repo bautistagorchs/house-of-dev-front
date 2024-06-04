@@ -1,28 +1,46 @@
 @import "../../app/globals.scss";
 
+$floatingContent-width: 550px;
+$margin-top-box: 195px;
+$box-height: 150px;
+$left-width: 35%;
 .outerContainer {
   width: 100%;
-  height: calc(100vh - 120px /* la altura de la navbar*/);
+  height: calc(100vh - $navbar-height /* la altura de la navbar*/);
   display: flex;
   justify-content: center;
   background-color: $white;
+}
+.outerContainer .floatingContent,
+.outerContainer .background {
+  height: 100%;
+  width: 100%;
+  display: inherit;
+  justify-content: inherit;
+}
+.outerContainer .background {
+  .right,
+  .left {
+    display: none;
+  }
 }
 .contentContainer {
   width: 82%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   color: $secondary-color;
 }
 .lineContainer {
   position: absolute;
-  top: 22%;
+  top: 15%;
   right: 0;
 }
 .box {
-  height: 150px;
+  height: $box-height;
   width: 100%;
-  margin-top: 195px;
+  margin-top: $margin-top-box;
   border: 1px solid $secondary-color;
   hr {
     margin: 0;
@@ -100,13 +118,74 @@
   }
 }
 .buttonContainer {
-  margin-top: 25px;
-  margin-right: -129px;
+  position: absolute;
+  top: calc($margin-top-box + $box-height + 12%);
+  right: 0;
   button {
     width: 160px;
     height: 45px;
     color: $secondary-color;
     border-radius: 25px;
     border: 1px solid $secondary-color;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      color: $white;
+      background-color: $secondary-color;
+      transform: scale(1.1);
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .outerContainer .floatingContent {
+    height: 410px;
+    width: $floatingContent-width;
+    align-items: center;
+    position: absolute;
+    top: 25%;
+    left: calc($left-width - $floatingContent-width / 2);
+    background-color: $white;
+    border-radius: 3px;
+    box-shadow: -2px 2px 20px -6px rgba(1, 12, 8, 0.295);
+    transition: all 0.4s ease;
+    &:hover {
+      transform: scale(1.02) translateY(-5px);
+    }
+  }
+  .box {
+    height: 150px;
+    width: 100%;
+    margin-top: 30px;
+  }
+  .buttonContainer {
+    top: calc(100% + 15px);
+  }
+  .contentContainer .lineContainer {
+    display: none;
+  }
+  .outerContainer .background {
+    display: flex;
+    .left {
+      width: $left-width;
+      height: 100%;
+      display: block;
+    }
+
+    .right {
+      width: 65%;
+      height: 100%;
+      display: block;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: auto;
+        object-fit: cover;
+      }
+    }
   }
 }

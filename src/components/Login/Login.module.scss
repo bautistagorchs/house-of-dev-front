@@ -127,39 +127,77 @@
     left: calc(40% - $floatingContent-width / 2);
     box-shadow: -2px 2px 20px -4px rgba(1, 12, 8, 0.368627451);
     transition: all 0.4s ease;
+
     &:hover {
       transform: scale(1.02) translateY(-5px);
     }
   }
+
   div .mainColorContainer {
     height: 50%;
   }
+
   .outerDiv {
     height: 50%;
   }
+
   .outerContainer .background {
     display: flex;
+
     .left {
       width: 40%;
       height: 100%;
       display: block;
       background-color: $main-color;
+
+      .svgContainer {
+        position: absolute;
+        width: 15%;
+        top: 60%;
+        left: 5%;
+
+        img {
+          height: 100%;
+          width: 100%;
+          max-width: 100%;
+          max-height: 100%;
+          display: block;
+          margin: auto;
+          object-fit: cover;
+        }
+      }
     }
+
     .right {
       width: 60%;
       height: 100%;
       display: block;
       overflow: hidden;
+
+      img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: auto;
+        object-fit: cover;
+      }
     }
-    .right img {
-      height: 100%;
-      width: 100%;
-      max-width: 100%;
-      max-height: 100%;
-      display: block;
-      margin: auto;
-      object-fit: cover;
-    }
+  }
+}
+
+@media (min-width: 1300px) {
+  .outerContainer .background .left .svgContainer {
+    width: 20%;
+    top: 49%;
+    left: 5.5%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .left .svgContainer {
+    display: none;
   }
 }
 
@@ -201,3 +239,71 @@
     right: 5%;
   }
 }
+
+// @media (min-width: 600px) {
+//   .outerContainer .floatingContent {
+//     height: 610px;
+//     width: $floatingContent-width;
+//     position: absolute;
+//     top: 20%;
+//     left: calc(40% - $floatingContent-width / 2);
+//     box-shadow: -2px 2px 20px -4px rgba(1, 12, 8, 0.368627451);
+//     transition: all 0.4s ease;
+//     &:hover {
+//       transform: scale(1.02) translateY(-5px);
+//     }
+//   }
+//   div .mainColorContainer {
+//     height: 50%;
+//   }
+//   .outerDiv {
+//     height: 50%;
+//   }
+//   .outerContainer .background {
+//     display: flex;
+//     .left {
+//       width: 40%;
+//       height: 100%;
+//       display: block;
+//       background-color: $main-color;
+//     }
+//     .left .svgContainer {
+//       position: absolute;
+//       width: 15%;
+//       top: 60%;
+//       left: 5%;
+//       img {
+//         height: 100%;
+//         width: 100%;
+//         max-width: 100%;
+//         max-height: 100%;
+//         display: block;
+//         margin: auto;
+//         object-fit: cover;
+//       }
+//     }
+//     .right {
+//       width: 60%;
+//       height: 100%;
+//       display: block;
+//       overflow: hidden;
+//     }
+//     .right img {
+//       height: 100%;
+//       width: 100%;
+//       max-width: 100%;
+//       max-height: 100%;
+//       display: block;
+//       margin: auto;
+//       object-fit: cover;
+//     }
+//   }
+// }
+
+// @media (min-width: 1300px) {
+//   .left .svgContainer {
+//     width: 20%;
+//     top: 49%;
+//     left: 5.5%;
+//   }
+// }

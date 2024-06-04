@@ -9,12 +9,12 @@
 }
 .logo {
   position: absolute;
-  top: 40%;
+  top: 34%;
   left: $navbar-margins;
 }
 .menuContainer {
   position: absolute;
-  top: 36px;
+  top: 30%;
   right: $navbar-margins;
 }
 ul.noShow {
@@ -97,6 +97,7 @@ ul.dropdownMenu li:last-child {
     justify-content: flex-end;
     left: unset;
     right: $navbar-margins;
+    top: 40%;
     border: none;
     outline: none;
   }
