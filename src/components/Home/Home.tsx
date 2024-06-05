@@ -7,13 +7,23 @@ import Image from "next/image";
 import SearchInCircle from "@/commons/searchInCircle/SearchInCircle";
 import Link from "next/link";
 import bigBackground from "@/assets/bigBackground.jpg";
+import searchUndraw from "@/assets/searchUndraw.svg";
+import curlyLineUndraw from "@/assets/curlyLineUndraw.svg";
 
 const Home = () => {
   const [showSearchLabel, setShowSearchLabel] = useState(true);
   return (
     <div className={s.outerContainer}>
       <div className={s.background}>
-        <div className={s.left}></div>
+        <div className={s.left}>
+          <Image
+            src={curlyLineUndraw}
+            alt="Line Undraw"
+            width={90}
+            id={s.line}
+          />
+          <Image src={searchUndraw} alt="Undraw image" id={s.search} />
+        </div>
         <div className={s.right}>
           <Image src={bigBackground} alt="big background" />
         </div>

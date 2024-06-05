@@ -2,8 +2,8 @@ import React from "react";
 import s from "./GridView.module.scss";
 import Header from "@/commons/Header/Header";
 import Image from "next/image";
-import ArrowInCircle from "@/commons/arrowInCircle/ArrowInCircle";
 import PropertieCard from "@/commons/propertieCard/PropertieCard";
+import arrowInCircle from "@/assets/arrowInCircle.png";
 
 const GridView = () => {
   return (
@@ -30,7 +30,8 @@ const GridView = () => {
             </div>
             <div className={s.buttonContainer}>
               <button>
-                <p>Inmobiliaria</p> <ArrowInCircle />
+                <p>Inmobiliaria</p>
+                <Image src={arrowInCircle} alt="Arrow in circle" />
               </button>
             </div>
           </div>
