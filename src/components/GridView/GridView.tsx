@@ -2,6 +2,7 @@ import React from "react";
 import s from "./GridView.module.scss";
 import Header from "@/commons/Header/Header";
 import Image from "next/image";
+import houseInterior1 from "@/assets/houseInterior1.jpg";
 import PropertieCard from "@/commons/propertieCard/PropertieCard";
 import arrowInCircle from "@/assets/arrowInCircle.png";
 
@@ -15,17 +16,17 @@ const GridView = () => {
         <main>
           <div className={s.imageContainer}>
             <Image
-              src={
-                "https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              }
-              width={315}
-              height={189}
+              src={houseInterior1}
               alt="Main image"
               className={s.imgHouse}
             />
             <div className={s.textContainer}>
-              <h2>
+              <h2 id={s.mobileWidthH2}>
                 Aca va un poco de <br /> texto que quiera <br /> la inmobiliaria
+              </h2>
+              <h2 id={s.fullWidthH2}>
+                Aca va un poco de texto que <br /> quiera la inmobiliaria.{" "}
+                <br /> Un poco mas largo
               </h2>
             </div>
             <div className={s.buttonContainer}>

@@ -1,5 +1,5 @@
 @import "../../app/globals.scss";
-.card {
+.mobileCard {
   height: 200px;
   width: 148px;
   display: flex;
@@ -30,5 +30,127 @@
       font-weight: 400;
       font-size: 16px;
     }
+  }
+}
+.fullCard {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .mobileCard {
+    display: none;
+  }
+  .fullCard {
+    width: 530px;
+    max-height: 200px;
+    display: flex;
+    border: 0.5px solid $secondary-color-transparent;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.015);
+      border: 1px solid $secondary-color-dark;
+    }
+  }
+  .fullCard .imageContainer {
+    width: 30%;
+    max-width: 230px;
+    border-right: 1px solid $secondary-color;
+
+    img {
+      height: 96%;
+      width: 96%;
+      max-width: 96%;
+      max-height: 96%;
+      margin: 2%;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  .fullCard .info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: $white;
+  }
+  .fullCard .info > div:nth-child(-n + 2) {
+    height: calc(80px / 2);
+    display: flex;
+    border-bottom: 0.5px solid $secondary-color;
+    div {
+      display: flex;
+      align-items: center;
+    }
+    #priceContainer {
+      width: 35%;
+      margin-left: 10px;
+      border-right: 0.5px solid $secondary-color;
+      span {
+        font-weight: bold;
+      }
+    }
+    #locationContainer {
+      margin-left: 10px;
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+  .specifics > div {
+    width: calc(100% / 3);
+    margin: 0;
+    justify-content: center;
+    &:nth-child(-n + 2) {
+      border-right: 0.5px solid $secondary-color;
+    }
+  }
+  .fullCard .info > div:nth-child(n + 3) {
+    height: calc((100% - 80px) / 2);
+  }
+  .description {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid $secondary-color;
+    p {
+      margin-left: 12px;
+      font-size: 13.5px;
+      font-weight: 400;
+    }
+  }
+  .buttonsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 0.5rem;
+    button {
+      all: unset;
+      display: flex;
+      align-items: center;
+      &:last-child {
+        padding: 5px 7px;
+        text-transform: uppercase;
+        border-radius: 22px;
+        border: 1px solid $orange;
+      }
+    }
+    button:nth-of-type(-n + 2) {
+      border-radius: 50%;
+      border: 1px solid $orange;
+    }
+    #call {
+      padding: 5px 7px;
+    }
+  }
+}
+
+@media (min-width: 1220px) {
+  .fullCard {
+    width: 48%;
+  }
+}
+@media (min-width: 800px) and (max-width: 1220px) {
+  .fullCard {
+    width: 100%;
   }
 }

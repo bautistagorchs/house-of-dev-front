@@ -5,16 +5,15 @@
   height: 48px;
   margin-top: 15px;
   position: relative;
-  border: 1px solid $secondary-color;
+  border: 1px solid $white;
   .h3Container {
     height: 100%;
     width: 150px;
     display: flex;
     align-items: center;
-    // background-color: yellowgreen;
     h3 {
       margin: 0 0 0 10px;
-      color: $secondary-color;
+      color: $white;
       font-size: 17px;
       font-weight: 700;
       text-align: left;
@@ -27,6 +26,6 @@
     top: 60%;
     right: 0;
     border: none;
-    border-bottom: 0.1px solid $secondary-color;
+    border-bottom: 0.1px solid $white;
   }
 }
