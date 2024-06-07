@@ -1,21 +1,29 @@
 @import "../../app/globals.scss";
 
 .navbarContainer {
+  width: 100%;
   height: $navbar-height;
+  display: flex;
+  justify-content: center;
   position: sticky;
   top: 0;
   background-color: $main-color;
   z-index: 100;
+  .contentContainer {
+    width: 88%;
+    max-width: $content-max-width;
+    height: 100%;
+    position: relative;
+  }
 }
 .logo {
   position: absolute;
   top: 34%;
-  left: $navbar-margins;
 }
 .menuContainer {
   position: absolute;
   top: 30%;
-  right: $navbar-margins;
+  right: -9px;
 }
 ul.noShow {
   display: none;
@@ -71,6 +79,9 @@ ul.dropdownMenu li:first-child {
 ul.dropdownMenu li:last-child {
   border-radius: 0px 0px 15px 15px;
 }
+.isActive {
+  border-bottom: 1px solid white;
+}
 
 @keyframes slideIn {
   0% {
@@ -98,7 +109,7 @@ ul.dropdownMenu li:last-child {
     display: flex;
     justify-content: flex-end;
     left: unset;
-    right: $navbar-margins;
+    right: 0;
     top: 40%;
     border: none;
     outline: none;
@@ -123,8 +134,14 @@ ul.dropdownMenu li:last-child {
     }
   }
 
-  ul.dropdownMenu li:last-child {
+  ul.dropdownMenu li p {
+    padding-right: 0;
+    margin-right: 0;
     border: none;
     border-radius: 0;
+    &:hover {
+      cursor: pointer;
+      border-bottom: 1px solid white;
+    }
   }
 }

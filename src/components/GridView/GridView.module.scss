@@ -8,11 +8,11 @@
 }
 .headerContainer {
   width: 88%;
-  max-width: 1400px;
+  max-width: $content-max-width;
 }
 .gridContainer {
   width: 88%;
-  max-width: 1400px;
+  max-width: $content-max-width;
   main {
     margin-top: 10px;
     border: 1px solid $secondary-color;

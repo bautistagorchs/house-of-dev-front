@@ -11,16 +11,19 @@ import { logoutService } from "@/services/user.services";
 import { AppDispatch, RootState } from "@/state/store.state";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUser } from "@/state/features/userSlice";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useRouter();
+  const pathname = usePathname();
   const user = useSelector((state: RootState) => state.user);
 
   const [showSearchAction, setShowSearchAction] = useState(false);
   const handleCloseDropdown = () => setShowSearchAction(false);
+  const isActive = (path: string) => (pathname === path ? s.active : "");
   const handleLogout = async () => {
+    if (!user) return navigate.push("/login");
     const response = await logoutService();
     if (response.status === 204) {
       dispatch(clearUser());
@@ -55,29 +58,26 @@ const Navbar = () => {
             <p>. . .</p>
             <Image src={close} alt="close" onClick={handleCloseDropdown} />
           </li>
-          <li>
-            <Link href="/login">Login</Link>
+          <li className={isActive("/login")}>
+            <p onClick={handleLogout}>{user.email ? `Logout` : `Login`}</p>
           </li>
-          <li>
+          <li className={isActive("")}>
+            <Link href="">Barra</Link>
+          </li>
+          <li className={isActive("/gridView")}>
             <Link href="/gridView">GridView</Link>
           </li>
-          <li>
+          <li className={isActive("/appointments")}>
             <Link href="/appointments">Appointments</Link>
           </li>
-          <li>
+          <li className={isActive("/home")}>
             <Link href="/home">Home</Link>
           </li>
-          <li>
+          <li className={isActive("/profile")}>
             <Link href="/profile">Mi perfil</Link>
           </li>
-          <li>
-            <Link href="/">Barra</Link>
-          </li>
-          <li>
+          <li className={isActive("/contacto")}>
             <Link href="/contacto">Contacto</Link>
-          </li>
-          <li>
-            <p onClick={handleLogout}>{user.email ? `Logout` : `Login`}</p>
           </li>
         </ul>
       </div>
