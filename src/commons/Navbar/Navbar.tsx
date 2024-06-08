@@ -21,7 +21,10 @@ const Navbar = () => {
 
   const [showSearchAction, setShowSearchAction] = useState(false);
   const handleCloseDropdown = () => setShowSearchAction(false);
-  const isActive = (path: string) => (pathname === path ? s.active : "");
+  const isActive = (path: string) => {
+    return pathname === path ? s.isActive : undefined;
+  };
+
   const handleLogout = async () => {
     if (!user) return navigate.push("/login");
     const response = await logoutService();
@@ -58,26 +61,43 @@ const Navbar = () => {
             <p>. . .</p>
             <Image src={close} alt="close" onClick={handleCloseDropdown} />
           </li>
-          <li className={isActive("/login")}>
-            <p onClick={handleLogout}>{user.email ? `Logout` : `Login`}</p>
+          <li>
+            <p className={isActive("/login")} onClick={handleLogout}>
+              {user.email ? `Logout` : `Login`}
+            </p>
           </li>
-          <li className={isActive("")}>
-            <Link href="">Barra</Link>
+          <li>
+            <Link className={isActive("/")} href="/">
+              Barra
+            </Link>
           </li>
-          <li className={isActive("/gridView")}>
-            <Link href="/gridView">GridView</Link>
+          <li>
+            <Link className={isActive("/gridView")} href="/gridView">
+              GridView
+            </Link>
           </li>
-          <li className={isActive("/appointments")}>
-            <Link href="/appointments">Appointments</Link>
+          <li>
+            <Link
+              className={isActive("/admin/appointments")}
+              href="/admin/appointments"
+            >
+              Appointments
+            </Link>
           </li>
-          <li className={isActive("/home")}>
-            <Link href="/home">Home</Link>
+          <li>
+            <Link className={isActive("/home")} href="/home">
+              Home
+            </Link>
           </li>
-          <li className={isActive("/profile")}>
-            <Link href="/profile">Mi perfil</Link>
+          <li>
+            <Link className={isActive("/profile")} href="/profile">
+              Mi perfil
+            </Link>
           </li>
-          <li className={isActive("/contacto")}>
-            <Link href="/contacto">Contacto</Link>
+          <li>
+            <Link className={isActive("/contacto")} href="/contacto">
+              Contacto
+            </Link>
           </li>
         </ul>
       </div>

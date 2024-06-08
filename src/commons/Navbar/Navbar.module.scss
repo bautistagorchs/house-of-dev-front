@@ -56,6 +56,11 @@ ul.dropdownMenu li a {
   text-decoration: none;
   color: $white;
   display: block;
+  border-bottom: 1px solid transparent;
+  transition: all 1s ease;
+  &:hover {
+    border-bottom: 1px solid white;
+  }
 }
 ul.dropdownMenu li p {
   all: unset;
@@ -78,9 +83,6 @@ ul.dropdownMenu li:first-child {
 }
 ul.dropdownMenu li:last-child {
   border-radius: 0px 0px 15px 15px;
-}
-.isActive {
-  border-bottom: 1px solid white;
 }
 
 @keyframes slideIn {
@@ -127,11 +129,6 @@ ul.dropdownMenu li:last-child {
   ul.dropdownMenu li a {
     padding: 10px 0 3px 0;
     margin-left: 26px;
-    border-bottom: 1px solid transparent;
-    transition: all 1s ease;
-    &:hover {
-      border-bottom: 1px solid white;
-    }
   }
 
   ul.dropdownMenu li p {
@@ -144,4 +141,8 @@ ul.dropdownMenu li:last-child {
       border-bottom: 1px solid white;
     }
   }
+}
+
+.contentContainer ul.dropdownMenu li .isActive {
+  border-bottom: 1px solid white;
 }

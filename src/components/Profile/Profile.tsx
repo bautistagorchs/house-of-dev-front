@@ -8,9 +8,12 @@ import ClosedEye from "@/assets/ClosedEye";
 import OpenedEye from "@/assets/OpenedEye";
 import profilepic from "@/assets/profilepic.jpg";
 import edit from "@/assets/edit.png";
+import { useSelector } from "react-redux";
+import { RootState } from "@/state/store.state";
 
 const Profile = () => {
   const [showHidePassword, setShowHidePassord] = useState(false);
+  const user = useSelector((state: RootState) => state.user);
 
   return (
     <div className={s.outerContainer}>
@@ -24,16 +27,21 @@ const Profile = () => {
           </div>
           <form action="" className={s.form}>
             <label htmlFor="name">Nombre</label>
-            <input disabled type="text" placeholder="Bautista" name="name" />
+            <input disabled type="text" placeholder={user.name} name="name" />
 
             <label htmlFor="last_name">Apellido</label>
-            <input disabled type="text" placeholder="Gorchs" name="last_name" />
+            <input
+              disabled
+              type="text"
+              placeholder={user.last_name}
+              name="last_name"
+            />
 
             <label htmlFor="email">Email</label>
             <input
               disabled
               type="email"
-              placeholder="bautista.gorchs1@gmail.com"
+              placeholder={user.email}
               name="email"
             />
 
@@ -41,7 +49,11 @@ const Profile = () => {
             <input
               disabled
               type="number"
-              placeholder="+54 9 11 2193 0482"
+              placeholder={
+                user.phone_number
+                  ? user.phone_number.toString()
+                  : "No hay informacion"
+              }
               name="phone"
             />
             <div className={s.password}>
@@ -49,7 +61,7 @@ const Profile = () => {
               <input
                 disabled
                 type={showHidePassword ? "text" : "password"}
-                placeholder="........."
+                placeholder={user.email ? "........." : ""}
                 name="password"
               />
               <div

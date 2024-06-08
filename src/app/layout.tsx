@@ -4,6 +4,7 @@ import { Providers } from "@/state/provider.state";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/commons/Navbar/Navbar";
+import UserMe from "@/state/UserMe.state";
 // import type { Metadata } from "next";
 
 const montserrat = Montserrat({
@@ -26,8 +27,10 @@ export default function RootLayout({ children }: Props) {
       </head>
       <body className={montserrat.className}>
         <Providers>
-          <Navbar />
-          {children}
+          <UserMe>
+            <Navbar />
+            {children}
+          </UserMe>
         </Providers>
       </body>
     </html>

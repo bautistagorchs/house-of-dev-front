@@ -13,5 +13,6 @@ export const logoutService = async () => {
 };
 
 export const authMeService = async () => {
+  console.log("se hizo un pedido del front a la ruta /me");
   return await axios.get(`${apiUrl}/users/me`);
 };

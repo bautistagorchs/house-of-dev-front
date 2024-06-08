@@ -13,7 +13,8 @@ export const middleware = async (request: NextRequest) => {
       jwt.value,
       new TextEncoder().encode(secretKey)
     );
-    console.log(payload);
+    if (request.nextUrl.pathname.includes("/admin") && !payload.is_admin)
+      return NextResponse.redirect(new URL("/unauthorized", request.url));
 
     return NextResponse.next();
   } catch (error) {
@@ -22,5 +23,5 @@ export const middleware = async (request: NextRequest) => {
 };
 
 export const config = {
-  matcher: "/gridView",
+  matcher: ["/gridView", "/admin/appointments", "/home", "/profile"],
 };
