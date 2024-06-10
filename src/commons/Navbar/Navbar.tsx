@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   const handleLogout = async () => {
-    if (!user) return navigate.push("/login");
+    if (!user.email) return navigate.push("/login");
     const response = await logoutService();
     if (response.status === 204) {
       dispatch(clearUser());

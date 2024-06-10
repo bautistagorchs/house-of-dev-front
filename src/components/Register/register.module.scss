@@ -1,5 +1,7 @@
 @import "../../app//globals.scss";
 
+$mainColorContainer-height: 12%;
+
 .outerContainer {
   height: calc(100vh - $navbar-height);
   max-height: calc(100vh - $navbar-height);
@@ -17,23 +19,32 @@
   }
 }
 .mainColorContainer {
-  height: 55%;
+  height: $mainColorContainer-height;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   background-color: $main-color;
   .logoContainer {
-    width: fit-content;
-    margin-left: 10%;
-    margin-bottom: 30px;
+    width: 90%;
+    h1 {
+      color: $white;
+      text-align: center;
+      text-decoration: underline;
+      letter-spacing: 1.5px;
+    }
   }
 }
 .outerDiv {
-  height: 45%;
+  height: calc(100% - $mainColorContainer-height);
 }
 .outerDiv .contentContainer {
   width: 100%;
   height: 100%;
-  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $main-color;
+
   .formContainer {
     width: 100%;
     display: flex;
@@ -45,7 +56,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 4rem;
+      margin-top: 2rem;
       gap: 15px;
       .inputContainer {
         width: 100%;
@@ -64,65 +75,91 @@
         align-items: center;
         position: absolute;
         left: 23px;
-        font-size: 13px;
+        font-size: 12.5px;
         text-transform: uppercase;
-        div {
+        color: white;
+        img {
           margin-right: 11px;
         }
       }
       input {
-        height: 49px;
+        height: 42px;
         width: 100%;
-        color: $secondary-color;
-        padding-left: 61px;
+        color: $secondary-color-dark;
+        font-size: 14px;
+        padding-left: 48px;
         border-radius: 25px;
-        border: 1px solid $secondary-color;
+        border: 1px solid $white;
+        background-color: transparent;
         &:focus {
-          border-color: $secondary-color;
+          border-width: 2px;
           outline: none;
         }
       }
     }
   }
-  a {
-    text-decoration: none;
-    p {
-      color: $secondary-color-dark;
-      margin: 9px 0 0 15%;
-      font-size: 12px;
-      font-weight: 500;
-      &:hover {
-        text-decoration: underline;
-      }
+  button {
+    width: 100%;
+    color: $white;
+    text-transform: uppercase;
+    background-color: transparent;
+    border-radius: 25px;
+    border: 1px solid $white;
+    transition: all 0.4s ease-in-out;
+    &:hover {
+      color: $white;
+      background-color: $main-color-dark;
+      transform: scale(1.1);
+    }
+  }
+  .dividerContainer {
+    width: 80%;
+    margin: 10px 0;
+    color: $white;
+    display: flex;
+    hr {
+      width: 35%;
+      height: 1px;
+      background-color: $white;
+      border-width: 0;
+    }
+  }
+  #second {
+    hr {
+      width: 19%;
     }
   }
   .buttonContainer {
-    position: absolute;
-    right: 10%;
+    width: 80%;
     button {
-      width: 93px;
       height: 48px;
-      color: $secondary-color;
-      text-transform: uppercase;
-      background-color: transparent;
-      border-radius: 25px;
-      border: 1px solid $secondary-color;
-      transition: all 0.5s ease-in-out;
-      &:hover {
-        color: $white;
-        background-color: $secondary-color;
-        transform: scale(1.1);
-      }
+    }
+  }
+  .goToLogin {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      font-size: 14px;
+      color: $secondary-color-dark;
+    }
+    button {
+      height: 30px;
     }
   }
 }
 
 @media (min-width: 600px) {
+  .mainColorContainer .logoContainer {
+    margin-top: 40px;
+  }
+
   .outerContainer .floatingContent {
-    height: 610px;
+    height: 660px;
     width: $floatingContent-width;
     position: absolute;
-    top: 20%;
+    top: 18%;
     left: calc(40% - $floatingContent-width / 2);
     box-shadow: -2px 2px 20px -4px rgba(1, 12, 8, 0.368627451);
     transition: all 0.4s ease;
@@ -130,14 +167,6 @@
     &:hover {
       transform: scale(1.02) translateY(-5px);
     }
-  }
-
-  div .mainColorContainer {
-    height: 50%;
-  }
-
-  .outerDiv {
-    height: 50%;
   }
 
   .outerContainer .background {
@@ -238,71 +267,3 @@
     right: 5%;
   }
 }
-
-// @media (min-width: 600px) {
-//   .outerContainer .floatingContent {
-//     height: 610px;
-//     width: $floatingContent-width;
-//     position: absolute;
-//     top: 20%;
-//     left: calc(40% - $floatingContent-width / 2);
-//     box-shadow: -2px 2px 20px -4px rgba(1, 12, 8, 0.368627451);
-//     transition: all 0.4s ease;
-//     &:hover {
-//       transform: scale(1.02) translateY(-5px);
-//     }
-//   }
-//   div .mainColorContainer {
-//     height: 50%;
-//   }
-//   .outerDiv {
-//     height: 50%;
-//   }
-//   .outerContainer .background {
-//     display: flex;
-//     .left {
-//       width: 40%;
-//       height: 100%;
-//       display: block;
-//       background-color: $main-color;
-//     }
-//     .left .svgContainer {
-//       position: absolute;
-//       width: 15%;
-//       top: 60%;
-//       left: 5%;
-//       img {
-//         height: 100%;
-//         width: 100%;
-//         max-width: 100%;
-//         max-height: 100%;
-//         display: block;
-//         margin: auto;
-//         object-fit: cover;
-//       }
-//     }
-//     .right {
-//       width: 60%;
-//       height: 100%;
-//       display: block;
-//       overflow: hidden;
-//     }
-//     .right img {
-//       height: 100%;
-//       width: 100%;
-//       max-width: 100%;
-//       max-height: 100%;
-//       display: block;
-//       margin: auto;
-//       object-fit: cover;
-//     }
-//   }
-// }
-
-// @media (min-width: 1300px) {
-//   .left .svgContainer {
-//     width: 20%;
-//     top: 49%;
-//     left: 5.5%;
-//   }
-// }
