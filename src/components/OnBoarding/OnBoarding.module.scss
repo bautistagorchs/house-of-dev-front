@@ -1,46 +1,80 @@
 @import "../../app/globals.scss";
 
+$logo-width: 70%;
+
 .outerContainer {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - $navbar-height);
   display: flex;
   flex-direction: column;
 }
 .redBg {
-  height: calc(100vh - 126px);
+  width: 100%;
+  height: 100%;
   position: relative;
   background-color: $main-color;
   .logoContainer {
+    width: $logo-width;
+    max-width: 450px;
     position: absolute;
-    top: 370px;
-    left: 32.18px;
+    top: 20%;
+    left: calc(45% - $logo-width / 2);
+    img {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+    }
   }
   .vectorContainer {
     position: absolute;
-    bottom: 20px;
-    left: 60px;
+    top: 55%;
+    right: 15%;
     .slogan {
-      position: absolute;
-      top: 26px;
-      left: 33px;
       margin: 0;
       padding: 0;
-      font-weight: 500;
-      font-size: 17px;
+      font-weight: 600;
+      font-size: 19px;
       color: $white;
+      transform: rotate(-3deg);
+    }
+    img {
+      position: relative;
+      top: 7px;
+      left: 7%;
+      transform: rotate(-1deg);
     }
   }
 }
 
 .arrowsContainer {
-  height: 126px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  img {
-    transition: all 0.4s;
+  position: absolute;
+  top: 65%;
+  left: 20%;
+  transform: rotate(95deg);
+}
+
+.buttonContainer {
+  position: absolute;
+  top: 80%;
+  left: 52%;
+  button {
+    a {
+      color: $white;
+      font-size: 35px;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+    all: unset;
+    padding: 22px 50px;
+    background-color: $main-color-dark;
+    border-radius: 25px;
+    border: 1px solid $main-color-dark;
+    transition: all 0.5s ease;
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.06) translateY(-10px);
+      border-radius: 35px;
+      border: 1px solid $main-color-darkest;
     }
   }
 }
