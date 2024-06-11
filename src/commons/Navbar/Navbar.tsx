@@ -7,11 +7,13 @@ import Image from "next/image";
 import Link from "next/link";
 import close from "@/assets/close.png";
 import { Spin } from "hamburger-react";
+import { Tooltip } from "react-tooltip";
 import { logoutService } from "@/services/user.services";
 import { AppDispatch, RootState } from "@/state/store.state";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUser } from "@/state/features/userSlice";
 import { usePathname, useRouter } from "next/navigation";
+import { CiLogin, CiLogout } from "react-icons/ci";
 
 const Navbar = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -62,13 +64,13 @@ const Navbar = () => {
             <Image src={close} alt="close" onClick={handleCloseDropdown} />
           </li>
           <li>
-            <p className={isActive("/login")} onClick={handleLogout}>
-              {user.email ? `Logout` : `Login`}
-            </p>
+            <Link className={isActive("/login")} href="/login">
+              Login
+            </Link>
           </li>
           <li>
-            <Link className={isActive("/")} href="/">
-              Barra
+            <Link className={isActive("/register")} href="/register">
+              Register
             </Link>
           </li>
           <li>
@@ -99,8 +101,32 @@ const Navbar = () => {
               Contacto
             </Link>
           </li>
+          <li
+            data-tooltip-id="log-tooltip"
+            data-tooltip-variant="light"
+            data-tooltip-place="top"
+            data-tooltip-delay-hide={200}
+            data-tooltip-content={user.email ? "Logout" : "Login"}
+            onClick={handleLogout}
+          >
+            {user.email ? (
+              <CiLogout color="white" size={25} />
+            ) : (
+              <CiLogin color="white" size={25} />
+            )}
+          </li>
         </ul>
       </div>
+      <Tooltip
+        id="log-tooltip"
+        noArrow={true}
+        style={{
+          padding: "8px 15px",
+          color: "#0fa968",
+          fontWeight: "500",
+          fontSize: "15.6px",
+        }}
+      />
     </nav>
   );
 };

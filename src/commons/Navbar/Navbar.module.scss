@@ -62,27 +62,9 @@ ul.dropdownMenu li a {
     border-bottom: 1px solid white;
   }
 }
-ul.dropdownMenu li p {
-  all: unset;
-  margin-left: 4px;
-  padding: 10px;
-  color: $white;
-  display: block;
-}
 
 ul.dropdownMenu li:hover {
   background-color: $main-color-dark;
-}
-ul.dropdownMenu li:first-child {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  img {
-    margin-right: 10px;
-  }
-}
-ul.dropdownMenu li:last-child {
-  border-radius: 0px 0px 15px 15px;
 }
 
 @keyframes slideIn {
@@ -110,6 +92,7 @@ ul.dropdownMenu li:last-child {
   ul.dropdownMenu {
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
     left: unset;
     right: 0;
     top: 40%;
@@ -127,18 +110,16 @@ ul.dropdownMenu li:last-child {
     }
   }
   ul.dropdownMenu li a {
-    padding: 10px 0 3px 0;
+    padding: 0 0 3px 0;
     margin-left: 26px;
   }
 
-  ul.dropdownMenu li p {
-    padding-right: 0;
-    margin-right: 0;
-    border: none;
-    border-radius: 0;
+  ul.dropdownMenu li:last-child {
+    display: inherit;
+    color: $white;
+    margin-left: 20px;
     &:hover {
       cursor: pointer;
-      border-bottom: 1px solid white;
     }
   }
 }
