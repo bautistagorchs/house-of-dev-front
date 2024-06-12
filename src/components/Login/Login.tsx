@@ -129,6 +129,16 @@ const Login = () => {
               <div className={s.buttonContainer}>
                 <button onClick={handleSubmit}>Log in</button>
               </div>
+              <div className={s.dividerContainer} id={s.second}>
+                <hr />
+                Dont have an account?
+                <hr />
+              </div>
+              <div className={s.goToLogin}>
+                <button onClick={() => navigate.push("/register")}>
+                  Go to login
+                </button>
+              </div>
             </div>
           </div>
         </div>

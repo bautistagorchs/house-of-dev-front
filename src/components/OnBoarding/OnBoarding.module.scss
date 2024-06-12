@@ -1,6 +1,7 @@
 @import "../../app/globals.scss";
 
 $logo-width: 70%;
+$button-width: 276px;
 
 .outerContainer {
   width: 100%;
@@ -17,7 +18,7 @@ $logo-width: 70%;
     width: $logo-width;
     max-width: 450px;
     position: absolute;
-    top: 20%;
+    top: 17%;
     left: calc(45% - $logo-width / 2);
     img {
       height: 100%;
@@ -25,28 +26,30 @@ $logo-width: 70%;
       margin: 0;
     }
   }
-  .vectorContainer {
-    position: absolute;
-    top: 55%;
-    right: 15%;
-    .slogan {
-      margin: 0;
-      padding: 0;
-      font-weight: 600;
-      font-size: 19px;
-      color: $white;
-      transform: rotate(-3deg);
-    }
-    img {
-      position: relative;
-      top: 7px;
-      left: 7%;
-      transform: rotate(-1deg);
-    }
+}
+.vectorContainer {
+  position: absolute;
+  top: 46%;
+  right: 10%;
+  .slogan {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 19px;
+    color: $white;
+    transform: rotate(-3deg);
+  }
+  img {
+    max-width: 240px;
+    position: relative;
+    top: -25px;
+    left: 7%;
+    transform: rotate(-1deg);
   }
 }
 
 .arrowsContainer {
+  display: none;
   position: absolute;
   top: 65%;
   left: 20%;
@@ -56,7 +59,7 @@ $logo-width: 70%;
 .buttonContainer {
   position: absolute;
   top: 80%;
-  left: 52%;
+  left: calc(50% - $button-width / 2);
   button {
     a {
       color: $white;
@@ -66,15 +69,133 @@ $logo-width: 70%;
       text-decoration: underline;
     }
     all: unset;
-    padding: 22px 50px;
+    padding: 20px 30px;
     background-color: $main-color-dark;
     border-radius: 25px;
     border: 1px solid $main-color-dark;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     &:hover {
-      transform: scale(1.06) translateY(-10px);
-      border-radius: 35px;
+      cursor: pointer;
+      border-radius: 45px;
       border: 1px solid $main-color-darkest;
     }
+  }
+}
+
+@media (min-width: 450px) {
+  .vectorContainer {
+    top: 48%;
+  }
+  .buttonContainer {
+    left: calc(50% - 316px / 2);
+    button {
+      padding: 22px 50px;
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .buttonContainer {
+    left: calc(50% - 366px / 2);
+    button {
+      padding: 22px 75px;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .vectorContainer {
+    top: 50%;
+  }
+  .vectorContainer img {
+    top: -20px;
+    left: 0;
+    max-width: 300px;
+  }
+
+  .arrowsContainer {
+    display: block;
+  }
+  .buttonContainer {
+    left: 52%;
+    button {
+      padding: 22px 50px;
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  .vectorContainer {
+    top: 40%;
+    right: 8%;
+  }
+  .vectorContainer .slogan {
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+  .vectorContainer img {
+    max-width: unset;
+    top: 7px;
+    left: 0%;
+  }
+  .arrowsContainer {
+    top: 56%;
+    left: 25%;
+  }
+  .buttonContainer {
+    left: 48%;
+    button {
+      padding: 25px 90px;
+      letter-spacing: 4px;
+      animation: button-bounce 2s ease-out 0s infinite alternate forwards;
+    }
+  }
+}
+
+@keyframes button-bounce {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+    transform: translateY(-45px);
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  40% {
+    animation-timing-function: ease-in;
+    transform: translateY(-24px);
+  }
+
+  65% {
+    animation-timing-function: ease-in;
+    transform: translateY(-12px);
+  }
+
+  82% {
+    animation-timing-function: ease-in;
+    transform: translateY(-6px);
+  }
+
+  93% {
+    animation-timing-function: ease-in;
+    transform: translateY(-4px);
+  }
+
+  25%,
+  55%,
+  75%,
+  87% {
+    animation-timing-function: ease-out;
+    transform: translateY(0px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(0px);
   }
 }

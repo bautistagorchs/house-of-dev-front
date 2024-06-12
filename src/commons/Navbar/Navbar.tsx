@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <nav className={s.navbarContainer}>
       <div className={s.contentContainer}>
-        <Link href={"/home"}>
+        <Link href={"/"}>
           <Image src={Hod} alt="Logo" className={s.logo} />
         </Link>
         <div

@@ -15,7 +15,7 @@ const OnBoarding = () => {
         </div>
         <div className={s.vectorContainer}>
           <h3 className={s.slogan}>Tu nueva vivienda está aqui</h3>
-          <Image src={vectorUndraw} alt="vector" height={85} />
+          <Image src={vectorUndraw} alt="vector" height={150} />
         </div>
       </div>
       <div className={s.arrowsContainer}>

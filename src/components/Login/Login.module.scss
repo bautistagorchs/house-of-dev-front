@@ -119,42 +119,38 @@
 
 @media (min-width: 600px) {
   .outerContainer .floatingContent {
-    height: 610px;
+    height: 630px;
     width: $floatingContent-width;
     position: absolute;
     top: 20%;
     left: calc(40% - $floatingContent-width / 2);
     box-shadow: -2px 2px 20px -4px rgba(1, 12, 8, 0.368627451);
     transition: all 0.4s ease;
-
     &:hover {
       transform: scale(1.02) translateY(-5px);
     }
   }
-
   div .mainColorContainer {
-    height: 50%;
+    height: 44%;
   }
-
   .outerDiv {
-    height: 50%;
+    height: 56%;
   }
-
+  .outerDiv .contentContainer .formContainer form {
+    margin-top: 2.8rem;
+  }
   .outerContainer .background {
     display: flex;
-
     .left {
       width: 40%;
       height: 100%;
       display: block;
       background-color: $main-color;
-
       .svgContainer {
         position: absolute;
         width: 15%;
         top: 60%;
         left: 5%;
-
         img {
           height: 100%;
           width: 100%;
@@ -181,6 +177,41 @@
         display: block;
         margin: auto;
         object-fit: cover;
+      }
+    }
+  }
+  .dividerContainer {
+    width: 80%;
+    position: absolute;
+    bottom: 12%;
+    left: 10%;
+    display: flex;
+    color: $secondary-color;
+    hr {
+      width: 15%;
+      height: 1px;
+      background-color: $secondary-color;
+      border-width: 0;
+    }
+  }
+  .goToLogin {
+    width: 78%;
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    button {
+      width: 100%;
+      height: 30px;
+      color: $secondary-color;
+      text-transform: uppercase;
+      background-color: transparent;
+      border-radius: 25px;
+      border: 1px solid $secondary-color;
+      transition: all 0.4s ease-in-out;
+      &:hover {
+        color: $white;
+        background-color: $secondary-color-dark;
+        transform: scale(1.03);
       }
     }
   }
