@@ -61,14 +61,12 @@ $button-width: 276px;
   top: 80%;
   left: calc(50% - $button-width / 2);
   button {
-    a {
-      color: $white;
-      font-size: 35px;
-      font-weight: 600;
-      text-transform: uppercase;
-      text-decoration: underline;
-    }
     all: unset;
+    color: $white;
+    font-size: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: underline;
     padding: 20px 30px;
     background-color: $main-color-dark;
     border-radius: 25px;
