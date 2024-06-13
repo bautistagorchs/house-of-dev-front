@@ -1,12 +1,26 @@
-import React from "react";
-import s from "./GridView.module.scss";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import s from "./Propiedades.module.scss";
 import Header from "@/commons/Header/Header";
 import Image from "next/image";
 import houseInterior1 from "@/assets/houseInterior1.jpg";
 import PropertieCard from "@/commons/propertieCard/PropertieCard";
 import arrowInCircle from "@/assets/arrowInCircle.png";
+import { getAllProperties } from "@/services/propertie.service";
+import { PropertieDataType } from "@/types/types";
 
-const GridView = () => {
+const Propiedades = () => {
+  const [properties, setproperties] = useState<PropertieDataType[]>([]);
+
+  useEffect(() => {
+    getAllProperties()
+      .then((properties) => {
+        if (properties.data) return setproperties(properties.data);
+        return console.log("No se encontraron propiedades para mostrar");
+      })
+      .catch(() => {});
+  }, []);
   return (
     <div className={s.outerContainer}>
       <header className={s.headerContainer}>
@@ -39,15 +53,16 @@ const GridView = () => {
         </main>
         <hr id={s.mainSeparator} />
         <div className={s.cardsContainer}>
-          <PropertieCard />
-          <PropertieCard />
-          <PropertieCard />
-          <PropertieCard />
-          <PropertieCard />
+          {properties &&
+            properties.map((propertie: PropertieDataType, i: number) => (
+              <React.Fragment key={i}>
+                <PropertieCard propertieInfo={propertie} />
+              </React.Fragment>
+            ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default GridView;
+export default Propiedades;

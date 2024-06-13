@@ -82,7 +82,7 @@ const Home = () => {
               </label>
             </div>
             <div className={s.buttonContainer}>
-              <Link href={"/gridView"}>
+              <Link href={"/propiedades"}>
                 <button>Ver propiedades</button>
               </Link>
             </div>

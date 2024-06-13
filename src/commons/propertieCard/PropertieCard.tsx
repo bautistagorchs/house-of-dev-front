@@ -6,8 +6,13 @@ import locationPin from "@/assets/locationPin.png";
 import { SlLocationPin } from "react-icons/sl";
 import { FiPhoneCall } from "react-icons/fi";
 import { CiHeart } from "react-icons/ci";
+import { PropertieDataType } from "@/types/types";
 
-const PropertieCard = () => {
+interface PropertieCardProps {
+  propertieInfo: PropertieDataType;
+}
+
+const PropertieCard: React.FC<PropertieCardProps> = ({ propertieInfo }) => {
   return (
     <>
       <article className={s.mobileCard}>
@@ -17,7 +22,7 @@ const PropertieCard = () => {
         <hr id={s.divider} />
         <section className={s.location}>
           <Image src={locationPin} alt="location pin" />
-          <h3>Salta</h3>
+          <h3>{propertieInfo.address}</h3>
         </section>
       </article>
       <article className={s.fullCard}>
@@ -28,30 +33,27 @@ const PropertieCard = () => {
           <div>
             <div id={s.priceContainer}>
               <p>
-                <span>$</span> 100.000
+                <span>$</span> {propertieInfo.price}
               </p>
             </div>
             <div id={s.locationContainer}>
               <SlLocationPin />
-              <p> Tigre</p>
+              <p> {propertieInfo.address}</p>
             </div>
           </div>
           <div className={s.specifics}>
             <div>
-              <p>115 m2</p>
+              <p>{propertieInfo.mts} m2</p>
             </div>
             <div>
-              <p>3 dorm.</p>
+              <p>{propertieInfo.rooms} dorm.</p>
             </div>
             <div>
-              <p>2 baños</p>
+              <p>{propertieInfo.bathroom} baños</p>
             </div>
           </div>
           <div className={s.description}>
-            <p>
-              Casa ilumidad cercana a la estacion de tren Marina Nueva. Perfecta
-              para familia numerosa
-            </p>
+            <p>{propertieInfo.description}</p>
           </div>
           <div className={s.buttonsContainer}>
             <button className="button">

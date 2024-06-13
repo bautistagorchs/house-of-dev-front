@@ -63,19 +63,19 @@ const Navbar = () => {
             <p>. . .</p>
             <Image src={close} alt="close" onClick={handleCloseDropdown} />
           </li>
-          <li>
+          <li style={{ display: user.email ? "none" : "block" }}>
             <Link className={isActive("/login")} href="/login">
               Login
             </Link>
           </li>
-          <li>
+          <li style={{ display: user.email ? "none" : "block" }}>
             <Link className={isActive("/register")} href="/register">
               Register
             </Link>
           </li>
           <li>
-            <Link className={isActive("/gridView")} href="/gridView">
-              GridView
+            <Link className={isActive("/propiedades")} href="/propiedades">
+              Propiedades
             </Link>
           </li>
           <li>
