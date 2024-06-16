@@ -1,0 +1,23 @@
+@import "../../app/globals.scss";
+
+.arrowBack {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  border: 1px solid $main-color;
+  z-index: 5;
+  p {
+    color: $main-color-dark;
+    letter-spacing: 0.3px;
+    margin: 0;
+    padding: 5px 8px;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $main-color;
+    border: 1px solid $main-color;
+    p {
+      color: $white;
+    }
+  }
+}

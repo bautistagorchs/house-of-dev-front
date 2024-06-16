@@ -63,22 +63,13 @@ const Navbar = () => {
             <p>. . .</p>
             <Image src={close} alt="close" onClick={handleCloseDropdown} />
           </li>
-          <li style={{ display: user.email ? "none" : "block" }}>
-            <Link className={isActive("/login")} href="/login">
-              Login
-            </Link>
-          </li>
-          <li style={{ display: user.email ? "none" : "block" }}>
-            <Link className={isActive("/register")} href="/register">
-              Register
-            </Link>
-          </li>
+
           <li>
             <Link className={isActive("/propiedades")} href="/propiedades">
               Propiedades
             </Link>
           </li>
-          <li>
+          <li style={{ display: !user.is_admin ? "none" : "block" }}>
             <Link
               className={isActive("/admin/appointments")}
               href="/admin/appointments"
@@ -99,6 +90,16 @@ const Navbar = () => {
           <li>
             <Link className={isActive("/contacto")} href="/contacto">
               Contacto
+            </Link>
+          </li>
+          {/* <li style={{ display: user.email ? "none" : "block" }}>
+            <Link className={isActive("/login")} href="/login">
+              Login
+            </Link>
+          </li> */}
+          <li style={{ display: user.email ? "none" : "block" }}>
+            <Link className={isActive("/register")} href="/register">
+              Register
             </Link>
           </li>
           <li

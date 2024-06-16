@@ -68,6 +68,9 @@ $mainColorContainer-height: 12%;
           align-items: center;
           position: absolute;
           right: 20px;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
       label {

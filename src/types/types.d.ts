@@ -14,6 +14,15 @@ export type AppCardProps = {
   };
 };
 
+export type UserRegisterType = {
+  name: string;
+  last_name: string;
+  phone_number: number;
+  email: string;
+  password: string;
+  confirm_password: string;
+};
+
 export type userLoginType = {
   email: string;
   password: string;

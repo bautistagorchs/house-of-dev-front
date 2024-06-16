@@ -7,6 +7,7 @@ $left-width: 35%;
 .outerContainer {
   width: 100%;
   height: calc(100vh - $navbar-height /* la altura de la navbar*/);
+  position: relative;
   display: flex;
   justify-content: center;
   background-color: $white;
@@ -17,6 +18,12 @@ $left-width: 35%;
   width: 100%;
   display: inherit;
   justify-content: inherit;
+}
+
+.arrowBackContainer {
+  position: absolute;
+  top: 2%;
+  left: 0;
 }
 .outerContainer .background {
   .right,
@@ -34,8 +41,11 @@ $left-width: 35%;
 }
 .lineContainer {
   position: absolute;
-  top: 15%;
+  top: 14%;
   right: 0;
+}
+.lineContainer img {
+  transform: rotate(185deg);
 }
 .box {
   height: $box-height;
@@ -157,10 +167,14 @@ $left-width: 35%;
     width: 100%;
     margin-top: 30px;
   }
+  .arrowBackContainer {
+    top: -25%;
+  }
   .buttonContainer {
     top: calc(100% + 15px);
   }
   .contentContainer .lineContainer {
+    top: -19%;
     display: none;
   }
   .outerContainer .background {

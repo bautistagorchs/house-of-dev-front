@@ -1,8 +1,12 @@
-import { userLoginType } from "@/types/types";
+import { UserRegisterType, userLoginType } from "@/types/types";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+export const registerService = async (user: UserRegisterType) => {
+  return await axios.post(`${apiUrl}/users/register`, user);
+};
 
 export const loginService = async (user: userLoginType) => {
   return await axios.post(`${apiUrl}/users/login`, user);

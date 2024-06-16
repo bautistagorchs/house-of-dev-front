@@ -6,7 +6,6 @@ import { setUser } from "./features/userSlice";
 
 const UserMe = ({ children }: { children: ReactNode }) => {
   const dispatch: AppDispatch = useDispatch();
-
   useEffect(() => {
     authMeService()
       .then((user) => {

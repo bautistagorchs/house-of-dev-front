@@ -10,6 +10,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import s from "./register.module.scss";
 import { useRouter } from "next/navigation";
+import { registerService } from "@/services/user.services";
+import { AxiosError } from "axios";
 
 const Register = () => {
   const navigate = useRouter();
@@ -24,22 +26,49 @@ const Register = () => {
     confirm_password: true,
   });
   const [credentials, setCredentials] = useState({
+    name: "",
+    last_name: "",
+    phone_number: 0,
     email: "",
     password: "",
+    confirm_password: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-
     setCredentials({
       ...credentials,
       [e.target.name]: e.target.value,
     });
-
     setShowLabels((prev) => ({
       ...prev,
       [name]: value === "",
     }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const { name, last_name, phone_number, email, password, confirm_password } =
+      credentials;
+    if (
+      !name ||
+      !last_name ||
+      !phone_number ||
+      !email ||
+      !password ||
+      !confirm_password
+    )
+      return console.error("COMPLETA TODOS LOS CAMPOS LPM!");
+    if (password !== confirm_password)
+      return console.error("LAS CONTRASEÑAS NO COINCIDEN");
+    else {
+      try {
+        const response = await registerService(credentials);
+        console.log(response);
+      } catch (error) {
+        console.error((error as AxiosError).response?.data);
+      }
+    }
   };
 
   return (
@@ -62,7 +91,12 @@ const Register = () => {
           <div className={s.outerDiv}>
             <div className={s.contentContainer}>
               <div className={s.formContainer}>
-                <form action="submit" method="post" className={s.form}>
+                <form
+                  action="submit"
+                  method="post"
+                  className={s.form}
+                  onSubmit={handleSubmit}
+                >
                   <div className={s.inputContainer}>
                     <label htmlFor="name">
                       <EmailInCircle />
@@ -76,6 +110,7 @@ const Register = () => {
                       type="text"
                       name="name"
                       autoFocus
+                      autoComplete="on"
                       onChange={handleChange}
                     />
                   </div>
@@ -93,7 +128,6 @@ const Register = () => {
                     <input
                       type="text"
                       name="last_name"
-                      autoFocus
                       onChange={handleChange}
                     />
                   </div>
@@ -111,7 +145,6 @@ const Register = () => {
                     <input
                       type="number"
                       name="phone_number"
-                      autoFocus
                       onChange={handleChange}
                     />
                   </div>
@@ -127,7 +160,7 @@ const Register = () => {
                     <input
                       type="email"
                       name="email"
-                      autoFocus
+                      autoComplete="on"
                       onChange={handleChange}
                     />
                   </div>
@@ -145,6 +178,7 @@ const Register = () => {
                     <input
                       type={showHidePassword ? "text" : "password"}
                       name="password"
+                      autoComplete="on"
                       onChange={handleChange}
                     />
                     <div
@@ -169,7 +203,8 @@ const Register = () => {
                     </label>
                     <input
                       type={showHideConfirmPassword ? "text" : "password"}
-                      name="password"
+                      name="confirm_password"
+                      autoComplete="on"
                       onChange={handleChange}
                     />
                     <div
@@ -194,7 +229,7 @@ const Register = () => {
                 <hr />
               </div>
               <div className={s.buttonContainer}>
-                <button>Register</button>
+                <button onClick={handleSubmit}>Register</button>
               </div>
               <div className={s.dividerContainer} id={s.second}>
                 <hr />

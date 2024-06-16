@@ -10,6 +10,7 @@ import profilepic from "@/assets/profilepic.jpg";
 import edit from "@/assets/edit.png";
 import { useSelector } from "react-redux";
 import { RootState } from "@/state/store.state";
+import { VscEdit } from "react-icons/vsc";
 
 const Profile = () => {
   const [showHidePassword, setShowHidePassord] = useState(false);
@@ -19,7 +20,7 @@ const Profile = () => {
     <div className={s.outerContainer}>
       <div className={s.contentContainer}>
         <header>
-          <Header text="Mi perfil" hrWidth="215px" />
+          <Header text="Mi perfil" hrWidth="315px" />
         </header>
         <div className={s.content}>
           <div className={s.imageContainer}>
@@ -77,9 +78,10 @@ const Profile = () => {
               <p>Editar</p>
               <Image src={edit} alt="edit icon" />
             </button>
-            <button className={`${s.button} ${s.disabled}`}>
+            <button className={`${s.button} ${s.enabled}`}>
               <p>Guardar</p>
-              <Image src={edit} alt="edit icon" />
+              {/* <Image src={edit} alt="edit icon" /> */}
+              <VscEdit size={19} />
             </button>
           </div>
         </div>

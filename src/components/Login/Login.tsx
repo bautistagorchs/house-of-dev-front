@@ -89,6 +89,7 @@ const Login = () => {
                     <input
                       type="email"
                       name="email"
+                      autoComplete="on"
                       autoFocus
                       onChange={handleChange}
                     />
@@ -107,6 +108,7 @@ const Login = () => {
                     <input
                       type={showHidePassword ? "text" : "password"}
                       name="password"
+                      autoComplete="on"
                       onChange={handleChange}
                     />
                     <div
@@ -136,7 +138,7 @@ const Login = () => {
               </div>
               <div className={s.goToLogin}>
                 <button onClick={() => navigate.push("/register")}>
-                  Go to login
+                  Go to register
                 </button>
               </div>
             </div>

@@ -2,13 +2,14 @@
 
 import React, { useState } from "react";
 import s from "./Home.module.scss";
-import blueLine from "../../assets/blueLine.png";
 import Image from "next/image";
 import SearchInCircle from "@/commons/searchInCircle/SearchInCircle";
 import Link from "next/link";
 import bigBackground from "@/assets/bigBackground.jpg";
 import searchUndraw from "@/assets/searchUndraw.svg";
 import curlyLineUndraw from "@/assets/curlyLineUndraw.svg";
+import curlyLineUndrawUSD from "@/assets/curlyLineUndrawUSD.svg";
+import ArrowBack from "@/commons/arrowBack/ArrowBack";
 
 const Home = () => {
   const [showSearchLabel, setShowSearchLabel] = useState(true);
@@ -30,9 +31,15 @@ const Home = () => {
         <div className={s.floatingContent}>
           <div className={s.contentContainer}>
             <div className={s.lineContainer}>
-              <Image src={blueLine} alt="blue line" />
+              <Image
+                src={curlyLineUndrawUSD}
+                alt="orange curly line"
+                width={140}
+              />
             </div>
-
+            <div className={s.arrowBackContainer}>
+              <ArrowBack />
+            </div>
             <div className={s.box}>
               <div className={s.header}>
                 <div className={s.titleContainer}>
