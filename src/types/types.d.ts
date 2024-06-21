@@ -14,6 +14,12 @@ export type AppCardProps = {
   };
 };
 
+export type ArrowBackProps = {
+  backgroundColor?: string;
+  fontColor?: string;
+  borderColor?: string;
+};
+
 export type UserRegisterType = {
   name: string;
   last_name: string;

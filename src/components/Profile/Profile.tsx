@@ -11,6 +11,7 @@ import edit from "@/assets/edit.png";
 import { useSelector } from "react-redux";
 import { RootState } from "@/state/store.state";
 import { VscEdit } from "react-icons/vsc";
+import ArrowBack from "@/commons/arrowBack/ArrowBack";
 
 const Profile = () => {
   const [showHidePassword, setShowHidePassord] = useState(false);
@@ -23,6 +24,9 @@ const Profile = () => {
           <Header text="Mi perfil" hrWidth="315px" />
         </header>
         <div className={s.content}>
+          <div className={s.arrowBackContainer}>
+            <ArrowBack borderColor="#ffff" fontColor="#ffff" />
+          </div>
           <div className={s.imageContainer}>
             <Image src={profilepic} alt="Profile picture" />
           </div>
