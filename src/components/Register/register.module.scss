@@ -3,9 +3,22 @@
 $mainColorContainer-height: 12%;
 
 .outerContainer {
+  width: 100%;
   height: calc(100vh - $navbar-height);
   max-height: calc(100vh - $navbar-height);
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* gris semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
 }
 .outerContainer .floatingContent,
 .outerContainer .background {
@@ -24,6 +37,7 @@ $mainColorContainer-height: 12%;
   align-items: center;
   justify-content: center;
   background-color: $main-color;
+
   .logoContainer {
     width: 90%;
     h1 {
@@ -44,13 +58,13 @@ $mainColorContainer-height: 12%;
   flex-direction: column;
   align-items: center;
   background-color: $main-color;
-
   .formContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: $secondary-color;
+
     form {
       width: 80%;
       display: flex;
@@ -152,6 +166,9 @@ $mainColorContainer-height: 12%;
     }
   }
 }
+.contentContainer .formContainer form .inputContainer .inputError {
+  border: 1px solid #d72727;
+}
 
 @media (min-width: 600px) {
   .mainColorContainer .logoContainer {
@@ -162,7 +179,7 @@ $mainColorContainer-height: 12%;
     height: 660px;
     width: $floatingContent-width;
     position: absolute;
-    top: 18%;
+    top: 10%;
     left: calc(40% - $floatingContent-width / 2);
     box-shadow: -2px 2px 20px -4px rgba(1, 12, 8, 0.368627451);
     transition: all 0.4s ease;
@@ -184,7 +201,7 @@ $mainColorContainer-height: 12%;
       .svgContainer {
         position: absolute;
         width: 15%;
-        top: 60%;
+        top: 55%;
         left: 5%;
 
         img {
@@ -221,7 +238,7 @@ $mainColorContainer-height: 12%;
 @media (min-width: 1300px) {
   .outerContainer .background .left .svgContainer {
     width: 20%;
-    top: 49%;
+    top: 45%;
     left: 5.5%;
   }
 }
@@ -268,5 +285,59 @@ $mainColorContainer-height: 12%;
   }
   .outerDiv .contentContainer .buttonContainer {
     right: 5%;
+  }
+}
+
+.loader {
+  color: #ffffff;
+  font-size: 45px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  transform: translateZ(0);
+  animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
+}
+
+@keyframes mltShdSpin {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
+      -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+      -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
+      -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+      -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
+      -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+      -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+
+@keyframes round {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

@@ -12,9 +12,11 @@ import s from "./register.module.scss";
 import { useRouter } from "next/navigation";
 import { registerService } from "@/services/user.services";
 import { AxiosError } from "axios";
+import { checker } from "@/utils/helpers.utils";
 
 const Register = () => {
   const navigate = useRouter();
+  const [showLoader, setshowLoader] = useState(false);
   const [showHidePassword, setShowHidePassord] = useState(false);
   const [showHideConfirmPassword, setShowHideConfirmPassord] = useState(false);
   const [showLabels, setShowLabels] = useState({
@@ -24,6 +26,14 @@ const Register = () => {
     phone_number: true,
     password: true,
     confirm_password: true,
+  });
+  const [errors, setErrors] = useState({
+    name: "",
+    last_name: "",
+    phone_number: "",
+    email: "",
+    password: "",
+    confirm_password: "",
   });
   const [credentials, setCredentials] = useState({
     name: "",
@@ -44,30 +54,27 @@ const Register = () => {
       ...prev,
       [name]: value === "",
     }));
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, last_name, phone_number, email, password, confirm_password } =
-      credentials;
-    if (
-      !name ||
-      !last_name ||
-      !phone_number ||
-      !email ||
-      !password ||
-      !confirm_password
-    )
-      return console.error("COMPLETA TODOS LOS CAMPOS LPM!");
-    if (password !== confirm_password)
-      return console.error("LAS CONTRASEÑAS NO COINCIDEN");
-    else {
-      try {
-        const response = await registerService(credentials);
-        console.log(response);
-      } catch (error) {
-        console.error((error as AxiosError).response?.data);
-      }
+
+    const validFields = checker(credentials);
+
+    if (validFields !== true) return setErrors(validFields);
+
+    setshowLoader(true);
+
+    try {
+      await registerService(credentials);
+      navigate.push("/login");
+    } catch (error) {
+      console.error((error as AxiosError).response?.data);
+      setshowLoader(false);
     }
   };
 
@@ -83,6 +90,11 @@ const Register = () => {
           <Image src={bigBackground} alt="big background" />
         </div>
         <div className={s.floatingContent}>
+          {showLoader && (
+            <div className={s.overlay}>
+              <div className={s.loader}></div>
+            </div>
+          )}
           <div className={s.mainColorContainer}>
             <div className={s.logoContainer}>
               <h1>Sign Up</h1>
@@ -103,10 +115,11 @@ const Register = () => {
                       <span
                         style={{ display: showLabels.name ? "block" : "none" }}
                       >
-                        Name
+                        Name *
                       </span>
                     </label>
                     <input
+                      className={errors.name && s.inputError}
                       type="text"
                       name="name"
                       autoFocus
@@ -122,10 +135,11 @@ const Register = () => {
                           display: showLabels.last_name ? "block" : "none",
                         }}
                       >
-                        Last name
+                        Last name *
                       </span>
                     </label>
                     <input
+                      className={errors.last_name && s.inputError}
                       type="text"
                       name="last_name"
                       onChange={handleChange}
@@ -139,10 +153,11 @@ const Register = () => {
                           display: showLabels.phone_number ? "block" : "none",
                         }}
                       >
-                        Phone number
+                        Phone number *
                       </span>
                     </label>
                     <input
+                      className={errors.phone_number && s.inputError}
                       type="number"
                       name="phone_number"
                       onChange={handleChange}
@@ -154,10 +169,11 @@ const Register = () => {
                       <span
                         style={{ display: showLabels.email ? "block" : "none" }}
                       >
-                        Email
+                        Email *
                       </span>
                     </label>
                     <input
+                      className={errors.email && s.inputError}
                       type="email"
                       name="email"
                       autoComplete="on"
@@ -172,10 +188,11 @@ const Register = () => {
                           display: showLabels.password ? "block" : "none",
                         }}
                       >
-                        Password
+                        Password *
                       </span>
                     </label>
                     <input
+                      className={errors.password && s.inputError}
                       type={showHidePassword ? "text" : "password"}
                       name="password"
                       autoComplete="on"
@@ -198,10 +215,11 @@ const Register = () => {
                             : "none",
                         }}
                       >
-                        Confirm password
+                        Confirm password *
                       </span>
                     </label>
                     <input
+                      className={errors.confirm_password && s.inputError}
                       type={showHideConfirmPassword ? "text" : "password"}
                       name="confirm_password"
                       autoComplete="on"
@@ -229,7 +247,9 @@ const Register = () => {
                 <hr />
               </div>
               <div className={s.buttonContainer}>
-                <button onClick={handleSubmit}>Register</button>
+                <button onClick={handleSubmit} disabled={showLoader}>
+                  Register
+                </button>
               </div>
               <div className={s.dividerContainer} id={s.second}>
                 <hr />
