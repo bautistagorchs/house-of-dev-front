@@ -21,6 +21,11 @@ const Appointments = () => {
         <div className={s.appointments}>
           <AppointmentCard info={data} />
           <AppointmentCard info={data} />
+          <AppointmentCard info={data} />
+          <AppointmentCard info={data} />
+          <AppointmentCard info={data} />
+          <AppointmentCard info={data} />
+          <AppointmentCard info={data} />
         </div>
       </div>
     </div>

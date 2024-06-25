@@ -1,8 +1,7 @@
 import React from "react";
 import s from "./AppointmentCard.module.scss";
 import Image from "next/image";
-import house2 from "@/assets/house2.png";
-import message from "@/assets/message.png";
+import house3 from "@/assets/house3.jpeg";
 import locationpin from "@/assets/locationPin.png";
 import { AppCardProps } from "@/types/types";
 
@@ -11,11 +10,8 @@ const AppointmentCard = (info: AppCardProps) => {
     <div className={s.appCard}>
       <div className={s.left}>
         <div className={s.imgContainer}>
-          <Image src={house2} alt="House" />
+          <Image src={house3} alt="House" />
         </div>
-        <button>
-          Chat <Image src={message} alt="chat icon" />
-        </button>
       </div>
       <div className={s.right}>
         <div className={s.list}>

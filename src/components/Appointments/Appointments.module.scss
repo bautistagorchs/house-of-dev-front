@@ -9,8 +9,16 @@
 
 .contentContainer {
   width: 88%;
+  max-width: $content-max-width;
+}
+.contentContainer header {
+  width: 100%;
 }
 div.appointments {
   width: 100%;
-  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+  gap: 1rem;
 }

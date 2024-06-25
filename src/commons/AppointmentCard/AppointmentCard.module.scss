@@ -1,29 +1,30 @@
 @import "../../app/globals.scss";
 
 div.appCard {
-  width: 315px;
+  width: 100%;
   height: 205px;
   display: flex;
   margin-bottom: 20px;
 }
 
 div.appCard .left {
-  width: 33%;
-}
-
-.left .imgContainer {
-  height: 108px;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
+  width: 33.33%;
   border: 1px solid $secondary-color;
   border-right: none;
 }
+
+.left .imgContainer {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
 .left img {
-  max-width: 93%;
-  max-height: 93%;
+  max-width: 95%;
+  max-height: 95%;
   display: block;
   margin: auto;
+  object-fit: cover;
 }
 .left button {
   width: 93%;
@@ -35,7 +36,7 @@ div.appCard .left {
   border: 1px solid $secondary-color;
 }
 div.appCard .right {
-  width: 66%;
+  width: 66.66%;
   color: $secondary-color;
   border: 1px solid $secondary-color;
 }
@@ -90,5 +91,11 @@ div.appCard .right {
       font-size: 15px;
       font-weight: 700;
     }
+  }
+}
+
+@media (min-width: 1000px) {
+  div.appCard {
+    height: 235px;
   }
 }
