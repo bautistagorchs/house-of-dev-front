@@ -9,6 +9,7 @@ import PropertieCard from "@/commons/propertieCard/PropertieCard";
 import arrowInCircle from "@/assets/arrowInCircle.png";
 import { getAllProperties } from "@/services/propertie.service";
 import { PropertieDataType } from "@/types/types";
+import ArrowBack from "@/commons/arrowBack/ArrowBack";
 
 const Propiedades = () => {
   const [properties, setproperties] = useState<PropertieDataType[]>([]);
@@ -23,6 +24,9 @@ const Propiedades = () => {
   }, []);
   return (
     <div className={s.outerContainer}>
+      <div className={s.arrowBackContainer}>
+        <ArrowBack fontColor="#ffff" padding="5px 0px 0px 0px" />
+      </div>
       <header className={s.headerContainer}>
         <Header text="Propiedades en alquiler" hrWidth="170px" />
       </header>

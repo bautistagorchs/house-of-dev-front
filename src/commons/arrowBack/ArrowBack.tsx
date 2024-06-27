@@ -12,7 +12,13 @@ const ArrowBack = (props: ArrowBackProps) => {
       onClick={() => navigate.back()}
       style={{ border: `1px solid ${props.borderColor || "#0fa968"}` }}
     >
-      <p style={{ color: `${props.fontColor || "#0fa968"}` }}>
+      <p
+        style={{
+          color: `${props.fontColor || "#0fa968"}`,
+          padding: props.padding || "5px 8px",
+          borderBottom: props.borderBottom ? "none" : "1px solid white",
+        }}
+      >
         {" "}
         <VscArrowLeft /> Volver
       </p>

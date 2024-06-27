@@ -5,6 +5,9 @@ div.outerContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  .arrowBackContainer {
+    display: none;
+  }
 }
 div.contentContainer {
   width: 88%;
@@ -15,10 +18,10 @@ div.content {
   align-items: center;
   position: relative;
 }
-.content .arrowBackContainer {
+.arrowBackContainer {
   position: absolute;
-  left: 0;
-  top: 2%;
+  left: 6%;
+  top: calc($navbar-height + 2%);
 }
 
 .imageContainer {
@@ -141,6 +144,9 @@ form.form {
 @media (min-width: 1100px) {
   $content-width: 85%;
   $margin-and-padding-top-and-bottom: 6%;
+  div.outerContainer .arrowBackContainer {
+    display: block;
+  }
   div.contentContainer {
     width: 70%;
     display: flex;

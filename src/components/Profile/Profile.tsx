@@ -19,14 +19,14 @@ const Profile = () => {
 
   return (
     <div className={s.outerContainer}>
+      <div className={s.arrowBackContainer}>
+        <ArrowBack borderColor="#ffff" fontColor="#ffff" borderBottom="none" />
+      </div>
       <div className={s.contentContainer}>
         <header>
           <Header text="Mi perfil" hrWidth="315px" />
         </header>
         <div className={s.content}>
-          <div className={s.arrowBackContainer}>
-            <ArrowBack borderColor="#ffff" fontColor="#ffff" />
-          </div>
           <div className={s.imageContainer}>
             <Image src={profilepic} alt="Profile picture" />
           </div>

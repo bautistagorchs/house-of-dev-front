@@ -18,6 +18,8 @@ export type ArrowBackProps = {
   backgroundColor?: string;
   fontColor?: string;
   borderColor?: string;
+  padding?: string;
+  borderBottom?: string;
 };
 
 export type UserRegisterType = {

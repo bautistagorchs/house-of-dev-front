@@ -38,7 +38,7 @@ const Home = () => {
               />
             </div>
             <div className={s.arrowBackContainer}>
-              <ArrowBack />
+              <ArrowBack borderBottom="none" />
             </div>
             <div className={s.box}>
               <div className={s.header}>

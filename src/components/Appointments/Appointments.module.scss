@@ -6,6 +6,10 @@
   flex-direction: column;
   align-items: center;
 }
+.outerContainer .arrowBackContainer {
+  position: absolute;
+  left: 6%;
+}
 
 .contentContainer {
   width: 88%;
@@ -13,6 +17,7 @@
 }
 .contentContainer header {
   width: 100%;
+  margin-top: 55px;
 }
 div.appointments {
   width: 100%;

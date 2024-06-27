@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import s from "./Appointments.module.scss";
 import Header from "@/commons/Header/Header";
 import AppointmentCard from "@/commons/AppointmentCard/AppointmentCard";
+import ArrowBack from "@/commons/arrowBack/ArrowBack";
 
 const Appointments = () => {
   const data = {
@@ -14,6 +17,9 @@ const Appointments = () => {
   };
   return (
     <div className={s.outerContainer}>
+      <div className={s.arrowBackContainer}>
+        <ArrowBack fontColor="#ffff" padding="5px 0px 0px 0px" />
+      </div>
       <div className={s.contentContainer}>
         <header>
           <Header text="Proximas citas" hrWidth="200" />

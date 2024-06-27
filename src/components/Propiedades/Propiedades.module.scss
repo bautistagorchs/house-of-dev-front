@@ -6,9 +6,14 @@
   flex-direction: column;
   align-items: center;
 }
+.arrowBackContainer {
+  position: absolute;
+  left: 6%;
+}
 .headerContainer {
   width: 88%;
   max-width: $content-max-width;
+  margin-top: 40px;
 }
 .gridContainer {
   width: 88%;
@@ -104,9 +109,6 @@ main .buttonContainer {
 }
 
 @media (min-width: 800px) {
-  .headerContainer {
-    margin-top: 30px;
-  }
   main .imageContainer {
     height: 300px;
     img {
