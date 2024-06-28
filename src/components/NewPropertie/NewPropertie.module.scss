@@ -1,0 +1,136 @@
+@import "../../app/globals.scss";
+
+$button-height: 40px;
+
+.outerContainer {
+  width: 100%;
+  height: calc(100vh - $navbar-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.outerContainer .contentContainer {
+  width: 88%;
+  height: 100%;
+}
+.content {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.step1,
+.step2 {
+  width: 100%;
+  display: inherit;
+  flex-direction: inherit;
+  align-items: inherit;
+}
+
+.content h3 {
+  color: $white;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: underline;
+}
+.content .buttonContainer {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  button {
+    width: 190px;
+    height: 60px;
+    color: $white;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background-color: $orange;
+    border-radius: 15px;
+    border: none;
+    &:focus {
+      outline: none;
+      border: 3px solid $white;
+    }
+  }
+  input {
+    height: 25px;
+    padding-left: 5px;
+    border-radius: 8px;
+    border: none;
+  }
+}
+.actionButtonsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  button {
+    width: 48%;
+    height: $button-height;
+    color: $white;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: underline;
+    border-radius: 15px;
+    border: 1px solid #05f390;
+    &:focus {
+      outline: none;
+      border: 3px solid #05633c;
+    }
+  }
+}
+
+.step3 form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // gap: 0.4rem;
+}
+.step3 form label {
+  margin-top: 0.5rem;
+  margin-left: 5px;
+  font-size: 16.5px;
+  letter-spacing: 1px;
+  color: $white;
+}
+.step3 form input {
+  height: 27px;
+  padding-left: 5px;
+  color: $white;
+  font-size: 16px;
+  background-color: $orange;
+  border-radius: 8px;
+  border: 1px solid $transparent-white;
+  &:focus {
+    outline: none;
+    border: 3px solid $white;
+  }
+}
+.step3 form select {
+  height: 31px;
+  padding-left: 3px;
+  color: $white;
+  font-size: 15px;
+  background-color: $orange;
+  border: 1px solid $white;
+  border-radius: 8px;
+}
+
+.step3 form option {
+  font-size: 15px;
+  background-color: $orange;
+}
+.step4 {
+  width: 100%;
+}
+.step4 .textContainer {
+  width: 100%;
+  margin-top: 30px;
+  p {
+    color: $white;
+    border-bottom: 1px solid $main-color-light;
+  }
+}

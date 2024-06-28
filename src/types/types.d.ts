@@ -36,15 +36,17 @@ export type userLoginType = {
   password: string;
 };
 export type PropertieDataType = {
+  _type: string;
   title: string;
   address: string;
   description: string;
   price: number;
   operation: "venta" | "alquiler";
-  mts: number;
+  total_meters: number;
+  covered_meters: number;
   rooms?: number;
-  bathroom?: number;
-  status?: "available" | "closed" | "on hold";
+  bathrooms?: number;
+  status?: "disponible" | "operacion cerrada" | "en pausa";
   createdAt?: Date;
   updatedAt?: Date;
 };

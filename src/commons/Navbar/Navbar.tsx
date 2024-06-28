@@ -77,6 +77,14 @@ const Navbar = () => {
               Appointments
             </Link>
           </li>
+          <li style={{ display: !user.is_admin ? "none" : "block" }}>
+            <Link
+              className={isActive("/admin/new-propertie")}
+              href="/admin/new-propertie"
+            >
+              New Propertie
+            </Link>
+          </li>
           <li>
             <Link className={isActive("/home")} href="/home">
               Home

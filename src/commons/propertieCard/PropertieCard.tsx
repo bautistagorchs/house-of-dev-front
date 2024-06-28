@@ -43,13 +43,13 @@ const PropertieCard: React.FC<PropertieCardProps> = ({ propertieInfo }) => {
           </div>
           <div className={s.specifics}>
             <div>
-              <p>{propertieInfo.mts} m2</p>
+              <p>{propertieInfo.total_meters} m2</p>
             </div>
             <div>
               <p>{propertieInfo.rooms} dorm.</p>
             </div>
             <div>
-              <p>{propertieInfo.bathroom} baños</p>
+              <p>{propertieInfo.bathrooms} baños</p>
             </div>
           </div>
           <div className={s.description}>
