@@ -11,24 +11,51 @@ $button-height: 40px;
 }
 .outerContainer .contentContainer {
   width: 88%;
+  max-width: $content-max-width;
   height: 100%;
-}
-.content {
-  margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.headerContainer {
+  width: 100%;
+  max-width: $content-max-width;
+}
+.content {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  * {
+    color: $white;
+  }
+  button {
+    border-radius: 15px;
+  }
+}
+.step1Container,
+.step3Container,
+.step4Container,
 .step1,
-.step2 {
+.step2,
+.step3 {
   width: 100%;
   display: inherit;
   flex-direction: inherit;
   align-items: inherit;
 }
 
+.step1 .step2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.wrapRight {
+  display: none;
+}
+
 .content h3 {
-  color: $white;
   text-align: center;
   font-size: 16px;
   text-decoration: underline;
@@ -36,23 +63,32 @@ $button-height: 40px;
 .content .buttonContainer {
   margin-top: 15px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 1.5rem;
   button {
     width: 190px;
     height: 60px;
-    color: $white;
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 1px;
     background-color: $orange;
-    border-radius: 15px;
     border: none;
+    transition: background 0.5s ease;
+    &:hover {
+      text-decoration: underline;
+      background-color: $orange-dark;
+    }
     &:focus {
       outline: none;
       border: 3px solid $white;
     }
+  }
+  .focus {
+    outline: none;
+    border: 3px solid $white;
   }
   input {
     height: 25px;
@@ -63,19 +99,23 @@ $button-height: 40px;
 }
 .actionButtonsContainer {
   width: 100%;
+  max-width: 700px;
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
   button {
     width: 48%;
     height: $button-height;
-    color: $white;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 2px;
     text-decoration: underline;
-    border-radius: 15px;
     border: 1px solid #05f390;
+    transition: all 0.5s ease;
+    &:hover {
+      background-color: $main-color-dark;
+      border: 1px solid $main-color-dark;
+    }
     &:focus {
       outline: none;
       border: 3px solid #05633c;
@@ -84,35 +124,41 @@ $button-height: 40px;
 }
 
 .step3 form {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
-  // gap: 0.4rem;
+  div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 .step3 form label {
-  margin-top: 0.5rem;
-  margin-left: 5px;
+  margin: 0.5rem 1rem 0 5px;
   font-size: 16.5px;
   letter-spacing: 1px;
-  color: $white;
 }
-.step3 form input {
+.step3 form input,
+.step3 form textarea {
   height: 27px;
+  max-height: 160px;
+  width: 100%;
+  resize: none;
   padding-left: 5px;
-  color: $white;
   font-size: 16px;
+  resize: none;
   background-color: $orange;
   border-radius: 8px;
   border: 1px solid $transparent-white;
   &:focus {
     outline: none;
-    border: 3px solid $white;
+    border: 2px solid $white;
   }
 }
 .step3 form select {
   height: 31px;
+  width: 100%;
   padding-left: 3px;
-  color: $white;
   font-size: 15px;
   background-color: $orange;
   border: 1px solid $white;
@@ -130,7 +176,165 @@ $button-height: 40px;
   width: 100%;
   margin-top: 30px;
   p {
-    color: $white;
+    font-weight: 600;
     border-bottom: 1px solid $main-color-light;
+  }
+  span {
+    margin-left: 5px;
+    font-weight: 400;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.popupContainer {
+  width: 70%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  left: 15%;
+  top: 40%;
+  z-index: 1000;
+  background-color: $white;
+  border-radius: 3px;
+  animation: fadeIn 0.5s ease; // Aplica la animación al popup
+}
+
+.popupContainer .popup {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $white;
+  border-radius: 3px;
+  .textContainer {
+    width: 100%;
+    display: inherit;
+    flex-direction: inherit;
+    align-items: center;
+  }
+  h4 {
+    margin-top: 3rem;
+    text-transform: uppercase;
+    color: $main-color;
+    text-align: center;
+  }
+  .buttonsContainer {
+    width: 70%;
+    min-width: 200px;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  button {
+    width: 48%;
+    height: 32px;
+    color: $main-color;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: 1px solid $main-color;
+    transition: all 0.5s ease;
+    &:hover {
+      color: $white;
+      background-color: $main-color-dark;
+      border: 1px solid $main-color-dark;
+    }
+    &:focus {
+      outline: none;
+      border: 3px solid #05633c;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .step1 {
+    margin-top: 2rem;
+  }
+  .step1 .step2 {
+    display: flex;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .step3 form {
+    width: 80%;
+    flex-direction: column;
+    gap: 1rem;
+    div {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .step3 form input {
+    width: 60%;
+  }
+  .step3 form textarea {
+    width: 100%;
+    max-height: 150px;
+  }
+  .step3 form select {
+    width: 60%;
+  }
+  .content h3 {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  .popupContainer {
+    width: 500px;
+    left: calc(100% / 2 - 500px / 2);
+    h4 {
+      font-size: 17px;
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  .step1Container {
+    max-width: 900px;
+    margin-top: 2rem;
+    box-shadow: 0px 0px 4px 2px #4f4f4f66;
+  }
+  .step3Container {
+    margin-top: 1.5rem;
+    max-width: 900px;
+    box-shadow: 0px 0px 4px 2px #4f4f4f66;
+  }
+  .step4Container {
+    max-width: 900px;
+    margin-top: 1.5rem;
+    box-shadow: 0px 0px 4px 2px #4f4f4f66;
+  }
+  .step4 {
+    width: 70%;
+    padding: 1rem 0 2rem 0;
+  }
+  .step3 {
+    width: 70%;
+    padding: 1rem 0 2rem 0;
+    form {
+      width: 90%;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

@@ -65,6 +65,11 @@ const Navbar = () => {
           </li>
 
           <li>
+            <Link className={isActive("/home")} href="/home">
+              Home
+            </Link>
+          </li>
+          <li>
             <Link className={isActive("/propiedades")} href="/propiedades">
               Propiedades
             </Link>
@@ -83,11 +88,6 @@ const Navbar = () => {
               href="/admin/new-propertie"
             >
               New Propertie
-            </Link>
-          </li>
-          <li>
-            <Link className={isActive("/home")} href="/home">
-              Home
             </Link>
           </li>
           <li>
